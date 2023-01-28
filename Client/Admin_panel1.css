@@ -1,0 +1,81 @@
+* {
+  font-family: "Roboto", sans-serif;
+  color: #000000;
+  margin: 0px;
+  padding: 0px;
+}
+.main {
+  width: 1280px;
+  max-height: 720px;
+  margin-left: 52px;
+}
+.content {
+  margin-top: 52px;
+}
+header h1 {
+  font-weight: 300;
+  font-size: 50px;
+  margin-bottom: 25px;
+}
+.seach_place label {
+  font-weight: 500;
+  font-size: 14px;
+}
+.seach_place input {
+  width: 374px;
+  height: 48px;
+  border: 1px solid #000000;
+  margin-bottom: 10px;
+}
+.seach_place button {
+  background-color: #833ae0;
+  width: 120px;
+  height: 51px;
+  border-width: 0px;
+  color: white;
+  margin-left: 30px;
+}
+.seach_place a {
+  margin-right: 9px;
+  font-weight: 300;
+}
+.seach_place {
+  margin-bottom: 60px;
+}
+main .coin_info img,
+svg {
+  width: 120px;
+  height: 120px;
+}
+main .coin_info {
+  display: flex;
+  justify-content: space-between;
+  max-width: 745px;
+  margin-bottom: 25px;
+}
+main .coin_info button {
+  width: 120px;
+  height: 48px;
+  border-width: 0;
+  color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+}
+main .coin_info .text {
+  width: 224px;
+}
+main .coin_info .text h1 {
+  font-weight: 700px;
+  font-size: 16px;
+  color: #833ae0;
+}
+main .coin_info .text p {
+  font-weight: 400;
+  font-size: 12px;
+}
+main .commun_coin_info .add_new_coin {
+  display: flex;
+  align-items: center;
+  width: 284px;
+  justify-content: space-between;
+}
