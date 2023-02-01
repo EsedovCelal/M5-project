@@ -1,11 +1,6 @@
 import React from "react";
-import AdminPanel2 from "./Components/Admin_panel2/Admin_panel2";
-import "./Components/Admin_panel2/Admin_panel2.css";
+import Homepage1 from "./Components/Homepage1/Homepage1";
 function App() {
-  return (
-    <h1>
-      <AdminPanel2 />
-    </h1>
-  );
+  return <Homepage1 />;
 }
 export default App;
