@@ -2,26 +2,39 @@ const express = require("express");
 const mysql = require("mysql");
 const app = express();
 
-// const connection = mysql.createConnection({
-//     host: "",
-//     port: ,
-//     user:"",
-//     password:"",
-//     database:"",
-//     multipleStatements:true
-// });
+app.use("/images", express.static("icons"));
+const connection = mysql.createConnection({
+  host: "localhost",
+  port: 3306,
+  user: "root",
+  password: "Celal2646559",
+  database: "m5project",
+  multipleStatements: true,
+});
 
-// connection.connect((err) => {
-//   if (!err) {
-//     console.log("connected database with successfully");
-//   }
-// });
+connection.connect((err) => {
+  if (!err) {
+    console.log("connected database with successfully", (err, data) => {
+      if (!err) {
+        console.log(data);
+      }
+    });
+  }
+});
 
-// app.get(){};
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.get("/info", function (req, res) {
+  connection.query("SELECT * FROM coin_informations", (err, data) => {
+    if (!err) {
+      res.json(data);
+    }
+  });
+});
 // app.post(){};
 // app.put(){};
 // app.delete(){};
 
 app.listen(3000, function () {
-  console.log("connected successfully");
+  console.log("connected successfully with port 3000");
 });
