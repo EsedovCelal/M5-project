@@ -24,14 +24,24 @@ connection.connect((err) => {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.get("/info", function (req, res) {
+app.get("/get", function (req, res) {
   connection.query("SELECT * FROM coin_informations", (err, data) => {
     if (!err) {
       res.json(data);
     }
   });
 });
-// app.post(){};
+app.post("/post", function (req, res) {
+  const newinfo = req.body;
+  connection.query(
+    "INSERT INTO coin_informations SET ?",
+    [newinfo],
+    (err, data) => {
+      if (err) return res.status(500).json(err);
+      return res.send("Added new info");
+    }
+  );
+});
 // app.put(){};
 // app.delete(){};
 
