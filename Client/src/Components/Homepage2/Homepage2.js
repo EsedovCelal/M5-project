@@ -4,7 +4,7 @@ import arrow_up from "../../icons/arrow_up.svg";
 import { Link } from "react-router-dom";
 function Homepage2() {
   return (
-    <main class="main">
+    <main class="homepage2_main">
       <div class="content">
         <header>
           <Link style={{ textDecoration: "none" }} to="/">

@@ -4,7 +4,7 @@
   margin: 0px;
   padding: 0px;
 }
-.main {
+.homepage2_main {
   width: 1280px;
   max-height: 720px;
 }
@@ -19,7 +19,7 @@ header:first-child {
   font-size: 50px;
   margin-bottom: 25px;
 }
-.seach_place label {
+.homepage2_main .seach_place label {
   font-weight: 500;
   font-size: 14px;
 }
@@ -73,7 +73,7 @@ header:first-child {
 :nth-child(2) input {
   margin-bottom: 20px;
 }
-.main_inputs {
+.omepage2_main .main_inputs {
   font-weight: 500;
   font-size: 14px;
 }
