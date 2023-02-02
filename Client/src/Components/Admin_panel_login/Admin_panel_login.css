@@ -4,46 +4,46 @@
   margin: 0px;
   padding: 0px;
 }
-.main {
+.admin_panel_login_main {
   margin: 52px;
   /* width: 1280px;
   max-height: 720px; */
 }
-.content {
+.admin_panel_login_content {
   margin: auto;
   /* margin-top: 52px; */
   /* margin-right: 120px;
   margin-bottom: 151px; */
 }
-header h1 {
+.admin_panel_login_header h1 {
   font-weight: 300;
   font-size: 50px;
   margin-bottom: 25px;
 }
-.main .content .login {
+.admin_panel_login_main .admin_panel_login_content .login {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.main .content .login .login_into input {
+.admin_panel_login_main .admin_panel_login_content .login .login_into input {
   width: 374px;
   height: 48px;
   margin-bottom: 30px;
 }
-.main .content .login .login_into button {
+.admin_panel_login_main .admin_panel_login_content .login .login_into button {
   width: 120px;
   height: 48px;
   background-color: #833ae0;
   border-width: 0px;
   color: white;
 }
-.main .content .login .login_into label {
+.admin_panel_login_main .admin_panel_login_content .login .login_into label {
   width: 500;
   font-size: 14px;
 }
-.main .content .login .login_into {
+.admin_panel_login_main .admin_panel_login_content .login .login_into {
   width: 374px;
 }
-.main .content .login .login_into div {
+.admin_panel_login_main .admin_panel_login_content .login .login_into div {
   text-align: center;
 }

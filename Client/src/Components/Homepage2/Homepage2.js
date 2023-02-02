@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 function Homepage2() {
   return (
     <main class="homepage2_main">
-      <div class="content">
+      <div class="homepage2_content">
         <header>
           <Link style={{ textDecoration: "none" }} to="/">
             Homepage
           </Link>
         </header>
-        <div class="seach_place">
+        <div class="homepage2_seach_place">
           <label for="">Input field</label>
           <br />
           <input class="seach_input" />

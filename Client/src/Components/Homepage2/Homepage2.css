@@ -8,7 +8,7 @@
   width: 1280px;
   max-height: 720px;
 }
-.content {
+.homepage2_content {
   margin-left: 52px;
   margin-top: 52px;
   margin-right: 120px;
@@ -19,7 +19,7 @@ header:first-child {
   font-size: 50px;
   margin-bottom: 25px;
 }
-.homepage2_main .seach_place label {
+.homepage2_main .homepage2_seach_place label {
   font-weight: 500;
   font-size: 14px;
 }
@@ -34,7 +34,7 @@ header:first-child {
   height: 48px;
   border: 1px solid #000000;
 }
-.seach_place button {
+.homepage2_seach_place button {
   background-color: #833ae0;
   width: 120px;
   height: 51px;
@@ -42,11 +42,11 @@ header:first-child {
   color: white;
   margin-left: 30px;
 }
-.seach_place a {
+.homepage2_seach_place a {
   margin-right: 9px;
   font-weight: 300;
 }
-.seach_place {
+.homepage2_seach_place {
   margin-bottom: 25px;
 }
 .main_inputs {
@@ -73,7 +73,7 @@ header:first-child {
 :nth-child(2) input {
   margin-bottom: 20px;
 }
-.omepage2_main .main_inputs {
+.homepage2_main .main_inputs {
   font-weight: 500;
   font-size: 14px;
 }

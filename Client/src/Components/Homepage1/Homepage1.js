@@ -7,12 +7,13 @@ import { Link } from "react-router-dom";
 function Homepage1() {
   return (
     <div>
-      <main class="main">
-        <div class="content">
-          <header>
+      <main class="homepage1_main">
+        <div class="homepage1_content">
+          <header className="homepage1_header">
             <Link style={{ textDecoration: "none" }} to="/">
               Homepage
             </Link>
+            <Link to="/login">Sign in</Link>
           </header>
           <div class="seach_place">
             <label>Input field</label>

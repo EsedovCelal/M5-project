@@ -4,15 +4,20 @@
   margin: 0px;
   padding: 0px;
 }
-.main {
+.homepage1_main {
   width: 1280px;
   max-height: 720px;
 }
-.content {
+.homepage1_content {
   margin-left: 52px;
   margin-top: 52px;
   margin-right: 120px;
   margin-bottom: 151px;
+}
+.homepage1_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 header:first-child:-webkit-any-link {
   font-weight: 300;
