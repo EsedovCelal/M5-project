@@ -14,7 +14,7 @@
   margin-right: 120px;
   margin-bottom: 151px;
 }
-header h1 {
+header:first-child:-webkit-any-link {
   font-weight: 300;
   font-size: 50px;
   margin-bottom: 25px;
@@ -48,12 +48,16 @@ header h1 {
   display: flex;
   column-gap: 109px;
 }
-.coin svg {
+/* .coin svg {
   height: 214px;
   width: 214;
-}
+} */
 .coin {
   width: 30%;
+}
+.coins .coin .texts_coin {
+  height: 214px;
+  width: 214px;
 }
 .texts :first-child {
   font-weight: 500;

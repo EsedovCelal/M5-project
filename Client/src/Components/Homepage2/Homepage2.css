@@ -14,7 +14,7 @@
   margin-right: 120px;
   margin-bottom: 151px;
 }
-header h1 {
+header:first-child {
   font-weight: 300;
   font-size: 50px;
   margin-bottom: 25px;

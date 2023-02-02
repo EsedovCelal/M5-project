@@ -1,49 +1,57 @@
 import React from "react";
 import "../Homepage1/Homepage1.css";
+import arrow_down from "../../icons/arrow_down.svg";
+import arrow_right from "../../icons/arrow_right.svg";
+import coin from "../../icons/coin.png";
+import { Link } from "react-router-dom";
 function Homepage1() {
   return (
-    <main class="main">
-      <div class="content">
-        <header>
-          <h1>Homepage</h1>
-        </header>
-        <div class="seach_place">
-          <label>Input field</label>
-          <br />
-          <input />
-          <button class="seach_button">Seach</button>
-          <br />
-          <a href="">Advanced filter</a>
-          <img src="./icons/arrow_down.svg" alt="coin" />
+    <div>
+      <main class="main">
+        <div class="content">
+          <header>
+            <Link style={{ textDecoration: "none" }} to="/">
+              Homepage
+            </Link>
+          </header>
+          <div class="seach_place">
+            <label>Input field</label>
+            <br />
+            <input />
+            <button class="seach_button">Seach</button>
+            <br />
+            <Link to="/advancedfilter">Advanced filter</Link>
+            <img src={arrow_down} alt="arrow_down" />
+          </div>
+          <div class="coins">
+            <div class="coin">
+              <div class="texts">
+                <h3>Bullion coins</h3>
+                <Link to="/">Show all</Link>
+                <img src={arrow_right} alt="arrow_right" />
+              </div>
+              <img className="texts_coin" src={coin} alt="coin" />
+            </div>
+            <div class="coin">
+              <div class="texts">
+                <h3>Exclusive coins</h3>
+                <Link to="/">Show all</Link>
+                <img src={arrow_right} alt="arrow_right" />
+              </div>
+              <img src={coin} alt="coin" />
+            </div>
+            <div class="coin">
+              <div class="texts">
+                <h3>Commemorative coins</h3>
+                <Link to="/listofthecoins">Show all</Link>
+                <img src={arrow_right} alt="arrow_right" />
+              </div>
+              <img src={coin} alt="coin" />
+            </div>
+          </div>
         </div>
-        <div class="coins">
-          <div class="coin">
-            <div class="texts">
-              <h3>Bullion coins</h3>
-              <span>Show all</span>
-              <img src="./images/arrow_right.svg" alt="arrow_right" />
-            </div>
-            <img src="./images/coin.svg" alt="coin" />
-          </div>
-          <div class="coin">
-            <div class="texts">
-              <h3>Exclusive coins</h3>
-              <span>Show all</span>
-              <img src="./images/arrow_right.svg" alt="arrow_right" />
-            </div>
-            <img src="./images/coin.svg" alt="coin" />
-          </div>
-          <div class="coin">
-            <div class="texts">
-              <h3>Commemorative coins</h3>
-              <span>Show all</span>
-              <img src="./images/arrow_right.svg" alt="arrow_right" />
-            </div>
-            <img src="./images/coin.svg" alt="coin" />
-          </div>
-        </div>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
 export default Homepage1;

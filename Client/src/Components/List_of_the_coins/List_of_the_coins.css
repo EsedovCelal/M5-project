@@ -4,7 +4,7 @@
   margin: 0px;
   padding: 0px;
 }
-.main {
+.Listofthecoins_main {
   width: 1280px;
   max-height: 720px;
 }
@@ -60,11 +60,11 @@ header {
 .seach_place {
   margin-bottom: 25px;
 }
-.coins .coin img {
+.Listofthecoins_main .coins .coin {
   width: 120px;
   height: 120px;
 }
-.coins .coin {
+.Listofthecoins_main .coins .coin {
   width: 374px;
   display: flex;
   justify-content: space-between;
