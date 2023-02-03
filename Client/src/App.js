@@ -3,6 +3,7 @@ import Homepage1 from "./Components/Homepage1/Homepage1";
 import Homepage2 from "./Components/Homepage2/Homepage2";
 import Listofthecoins from "./Components/List_of_the_coins/List_of_the_coins";
 import Adminpanellogin from "./Components/Admin_panel_login/Admin_panel_login";
+import Admin_panel1 from "./Components/Admin_panel1/Admin_panel1";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/advancedfilter" element={<Homepage2 />} />
         <Route path="/listofthecoins" element={<Listofthecoins />} />
         <Route path="/login" element={<Adminpanellogin />} />
+        <Route path="/adminpanel1" element={<Admin_panel1 />} />
       </Routes>
     </div>
   );

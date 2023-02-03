@@ -1,32 +1,37 @@
-import React from "react";
+// import React, { useEffect } from "react";
 import "../List_of_the_coins/List_of_the_coins.css";
 import { Link } from "react-router-dom";
 import arrow_down from "../../icons/arrow_down.svg";
 import coin from "../../icons/coin.png";
 function Listofthecoins() {
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/get", { mode: "no-cors" })
+  //     .then((response) => response.json())
+  //     .then((data) => console.log(data));
+  // });
   return (
-    <main class="Listofthecoins_main">
-      <div class="content">
+    <main className="Listofthecoins_main">
+      <div className="content">
         <header>
           <h1>List of the coins</h1>
           <h6>
             <span>Homepage</span> — List of the coins
           </h6>
         </header>
-        <div class="seach_place">
+        <div className="seach_place">
           <label>Input field</label>
           <br />
           <input />
-          <button class="seach_button">Seach</button>
+          <button className="seach_button">Seach</button>
           <br />
           <Link to="/advancedfilter">Advanced filter</Link>
           <img src={arrow_down} alt="arrow_down" />
         </div>
-        <div class="coins">
-          <div class="left">
-            <div class="coin">
+        <div className="coins">
+          <div className="left">
+            <div className="coin">
               <img src={coin} alt="coin" />
-              <div class="text">
+              <div className="text">
                 <h3>Canadian Beaver</h3>
                 <br />
                 <h6>
@@ -35,9 +40,9 @@ function Listofthecoins() {
                 </h6>
               </div>
             </div>
-            <div class="coin">
+            <div className="coin">
               <img src={coin} alt="coin" />
-              <div class="text">
+              <div className="text">
                 <h3>Canadian Beaver</h3>
                 <br />
                 <h6>
@@ -46,9 +51,9 @@ function Listofthecoins() {
                 </h6>
               </div>
             </div>
-            <div class="coin">
+            <div className="coin">
               <img src={coin} alt="coin" />
-              <div class="text">
+              <div className="text">
                 <h3>Canadian Beaver</h3>
                 <br />
                 <h6>
@@ -58,10 +63,10 @@ function Listofthecoins() {
               </div>
             </div>
           </div>
-          <div class="right">
-            <div class="coin">
+          <div className="right">
+            <div className="coin">
               <img src={coin} alt="coin" />
-              <div class="text">
+              <div className="text">
                 <h3>Canadian Beaver</h3>
                 <br />
                 <h6>
@@ -70,9 +75,9 @@ function Listofthecoins() {
                 </h6>
               </div>
             </div>
-            <div class="coin">
+            <div className="coin">
               <img src={coin} alt="coin" />
-              <div class="text">
+              <div className="text">
                 <h3>Canadian Beaver</h3>
                 <br />
                 <h6>
@@ -81,9 +86,9 @@ function Listofthecoins() {
                 </h6>
               </div>
             </div>
-            <div class="coin">
+            <div className="coin">
               <img src={coin} alt="coin" />
-              <div class="text">
+              <div className="text">
                 <h3>Canadian Beaver</h3>
                 <br />
                 <h6>
