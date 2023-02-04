@@ -1,4 +1,4 @@
-* {
+.Listofthecoins_main * {
   font-family: "Roboto", sans-serif;
   color: #000000;
   margin: 0px;
@@ -40,11 +40,6 @@ header {
   margin-bottom: 10px;
   border: 1px solid #000000;
 }
-.main_inputs_left input {
-  width: 374px;
-  height: 48px;
-  border: 1px solid #000000;
-}
 .seach_place button {
   background-color: #833ae0;
   width: 120px;
@@ -60,13 +55,14 @@ header {
 .seach_place {
   margin-bottom: 25px;
 }
-.Listofthecoins_main .coins .coin {
+.Listofthecoins_main .coins .coin img {
   width: 120px;
   height: 120px;
 }
 .Listofthecoins_main .coins .coin {
   width: 374px;
   display: flex;
+
   justify-content: space-between;
 }
 .coins .coin h3 {
@@ -86,4 +82,5 @@ header {
   display: flex;
   width: 80%;
   justify-content: space-between;
+  flex-wrap: wrap;
 }

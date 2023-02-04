@@ -3,24 +3,24 @@ import "../Admin_panel1/Admin_panel1.css";
 function Admin_panel1() {
   return (
     <main className="admin_panel1_main">
-      <div class="content">
+      <div className="content">
         <header>
           <h1>Admin panel</h1>
         </header>
-        <div class="seach_place">
+        <div className="seach_place">
           <label>Input field</label>
           <br />
           <input />
-          <button class="seach_button">Seach</button>
+          <button className="seach_button">Seach</button>
           <br />
         </div>
       </div>
-      <div class="commun_coin_info">
-        <div class="coin_info">
+      <div className="commun_coin_info">
+        <div className="coin_info">
           <div>
             <img src="./images/coin.svg" alt="" />
           </div>
-          <div class="text">
+          <div className="text">
             <h1>Canadian Beaver</h1>
             <p>
               "Canadian beaver". Unique coin with the image of a beaver. Face
@@ -34,11 +34,11 @@ function Admin_panel1() {
             <button>Delete</button>
           </div>
         </div>
-        <div class="coin_info">
+        <div className="coin_info">
           <div>
             <img src="./images/coin.svg" alt="" />
           </div>
-          <div class="text">
+          <div className="text">
             <h1>Canadian Beaver</h1>
             <p>
               "Canadian beaver". Unique coin with the image of a beaver. Face
@@ -52,7 +52,7 @@ function Admin_panel1() {
             <button>Delete</button>
           </div>
         </div>
-        <div class="add_new_coin">
+        <div className="add_new_coin">
           <img src="./images/circle.svg" alt="circle" />
           <a href="">Add a new coin</a>
         </div>

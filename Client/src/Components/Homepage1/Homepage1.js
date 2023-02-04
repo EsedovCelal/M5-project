@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../Homepage1/Homepage1.css";
 import arrow_down from "../../icons/arrow_down.svg";
 import arrow_right from "../../icons/arrow_right.svg";
-import coin from "../../icons/coin.png";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 function Homepage1() {
+  const [info, setInfo] = useState([]);
+  useEffect(() => {
+    if (info.length === 0) {
+      fetch("http://localhost:3000/")
+        .then((response) => response.json())
+        .then((data) => setInfo(data))
+        .catch((error) => console.error(error));
+    }
+  });
   return (
     <div>
       <main className="homepage1_main">
@@ -24,31 +33,17 @@ function Homepage1() {
             <Link to="/advancedfilter">Advanced filter</Link>
             <img src={arrow_down} alt="arrow_down" />
           </div>
-          <div className="coins">
-            <div className="coin">
-              <div className="texts">
-                <h3>Bullion coins</h3>
-                <Link to="/">Show all</Link>
-                <img src={arrow_right} alt="arrow_right" />
+          <div className="homepage1_coins">
+            {info.map((coin) => (
+              <div className="homepage1_coin">
+                <div className="texts">
+                  <h3>{coin.category_name} coins</h3>
+                  <Link to={`/${coin.category_name}`}>Show all</Link>
+                  <img src={arrow_right} alt="arrow_right" />
+                </div>
+                <img className="texts_coin" src={coin.linkObserve} alt="coin" />
               </div>
-              <img className="texts_coin" src={coin} alt="coin" />
-            </div>
-            <div className="coin">
-              <div className="texts">
-                <h3>Exclusive coins</h3>
-                <Link to="/">Show all</Link>
-                <img src={arrow_right} alt="arrow_right" />
-              </div>
-              <img src={coin} alt="coin" />
-            </div>
-            <div className="coin">
-              <div className="texts">
-                <h3>Commemorative coins</h3>
-                <Link to="/listofthecoins">Show all</Link>
-                <img src={arrow_right} alt="arrow_right" />
-              </div>
-              <img src={coin} alt="coin" />
-            </div>
+            ))}
           </div>
         </div>
       </main>

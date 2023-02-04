@@ -1,17 +1,17 @@
-* {
+.homepage1_main * {
   font-family: "Roboto", sans-serif;
   color: #000000;
   margin: 0px;
   padding: 0px;
 }
 .homepage1_main {
-  width: 1280px;
+  width: 100%;
   max-height: 720px;
 }
 .homepage1_content {
   margin-left: 52px;
   margin-top: 52px;
-  margin-right: 120px;
+  margin-right: 52px;
   margin-bottom: 151px;
 }
 .homepage1_header {
@@ -49,7 +49,7 @@ header:first-child:-webkit-any-link {
 .seach_place {
   margin-bottom: 60px;
 }
-.coins {
+.homepage1_coins {
   display: flex;
   column-gap: 109px;
 }
@@ -57,10 +57,10 @@ header:first-child:-webkit-any-link {
   height: 214px;
   width: 214;
 } */
-.coin {
+.homepage1_coin {
   width: 30%;
 }
-.coins .coin .texts_coin {
+.homepage1_coins .homepage1_coin .texts_coin {
   height: 214px;
   width: 214px;
 }

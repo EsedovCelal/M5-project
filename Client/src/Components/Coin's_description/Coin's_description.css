@@ -1,34 +1,34 @@
-* {
+.coin_description_main * {
   margin: 0px;
   padding: 0px;
   font-family: "Roboto", sans-serif;
 }
-.main {
+.coin_description_main {
   display: flex;
   justify-content: center;
 }
-.content {
+.coin_description_content {
   width: 812px;
   height: 624px;
   display: flex;
   justify-content: space-between;
 }
-.content .coins img {
+.coin_description_content .coins img {
   width: 300px;
   height: 300px;
 }
-.content .coins {
+.coin_description_content .coins {
   width: 300px;
   height: 624px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.content .description p {
+.coin_description_content .description p {
   font-weight: 400;
   font-size: 12px;
 }
-.content .description h1 {
+.coin_description_content .description h1 {
   font-weight: 700;
   font-size: 28px;
   margin-bottom: 20px;

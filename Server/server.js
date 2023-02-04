@@ -1,6 +1,7 @@
 const express = require("express");
 const mysql = require("mysql");
 const app = express();
+const cors = require("cors");
 
 app.use("/images", express.static("icons"));
 const connection = mysql.createConnection({
@@ -24,13 +25,77 @@ connection.connect((err) => {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.get("/get", function (req, res) {
-  connection.query("SELECT * FROM coin_informations", (err, data) => {
-    if (!err) {
+app.use(cors());
+app.get("/:keyword", function (req, res) {
+  const { keyword } = req.params;
+  connection.query(
+    `SELECT * FROM coin_informations WHERE category = "${keyword} coins";`,
+    (err, data) => {
+      if (err) {
+        return res.status(500).send("There is hava a proble");
+      }
       res.json(data);
     }
-  });
+  );
 });
+app.get("/description/:id", function (req, res) {
+  const { id } = req.params;
+  connection.query(
+    `SELECT * FROM coin_informations WHERE id = "${id}";`,
+    (err, data) => {
+      if (err) {
+        return res.status(500).send("There is have a error");
+      }
+      res.json(data);
+    }
+  );
+});
+//region
+// app.get("/bullion", function (req, res) {
+//   connection.query(
+//     'SELECT * FROM coin_informations WHERE category = "Bullion coins";',
+//     (err, data) => {
+//       if (err) {
+//         return res.status(500).send("There is hava a proble");
+//       }
+//       res.json(data);
+//     }
+//   );
+// });
+// app.get("/exclusive", function (req, res) {
+//   connection.query(
+//     'SELECT * FROM coin_informations WHERE category = "Exclusive coins";',
+//     (err, data) => {
+//       if (err) {
+//         return res.status(500).send("there is have a problem");
+//       }
+//       res.json(data);
+//     }
+//   );
+// });
+// app.get("/commemorative", function (req, res) {
+//   connection.query(
+//     'SELECT * FROM coin_informations WHERE category = "Commemorative coins";',
+//     (err, data) => {
+//       if (err) {
+//         return res.status(500).send("there is have a problem");
+//       }
+//       res.json(data);
+//     }
+//   );
+// });
+app.get("/", function (req, res) {
+  connection.query(
+    "SELECT * FROM coin_informations_category_name;",
+    (err, data) => {
+      if (err) {
+        return res.status(500).send("there is have a problem");
+      }
+      res.json(data);
+    }
+  );
+});
+
 app.post("/post", function (req, res) {
   const newinfo = req.body;
   connection.query(

@@ -1,14 +1,22 @@
-// import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import "../List_of_the_coins/List_of_the_coins.css";
 import { Link } from "react-router-dom";
 import arrow_down from "../../icons/arrow_down.svg";
-import coin from "../../icons/coin.png";
+import { useState } from "react";
 function Listofthecoins() {
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/get", { mode: "no-cors" })
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data));
-  // });
+  const [info, setInfo] = useState([]);
+  // bu hissədə 3 catgory dən hansı seçilirsə ona uyğun fetch atılır
+  const currentUrl = window.location.href;
+  const url = new URL(currentUrl);
+  const pathname = url.pathname;
+  useEffect(() => {
+    if (info.length === 0) {
+      fetch(`http://localhost:3000${pathname}`)
+        .then((response) => response.json())
+        .then((data) => setInfo(data))
+        .catch((error) => console.error(error));
+    }
+  }, [info]);
   return (
     <main className="Listofthecoins_main">
       <div className="content">
@@ -28,76 +36,18 @@ function Listofthecoins() {
           <img src={arrow_down} alt="arrow_down" />
         </div>
         <div className="coins">
-          <div className="left">
-            <div className="coin">
-              <img src={coin} alt="coin" />
-              <div className="text">
-                <h3>Canadian Beaver</h3>
-                <br />
-                <h6>
-                  "Canadian beaver". Unique coin with the image of a beaver.
-                  Face value - 5 cents. Created under Elizabeth II.
-                </h6>
+          {info.map((coin) => (
+            <Link to={`/description/${coin.id}`}>
+              <div className="coin">
+                <img src={coin.linkObserve} alt="coin" />
+                <div className="text">
+                  <h3>{coin.coinname}</h3>
+                  <br />
+                  <h6>{coin.shortDesc}</h6>
+                </div>
               </div>
-            </div>
-            <div className="coin">
-              <img src={coin} alt="coin" />
-              <div className="text">
-                <h3>Canadian Beaver</h3>
-                <br />
-                <h6>
-                  "Canadian beaver". Unique coin with the image of a beaver.
-                  Face value - 5 cents. Created under Elizabeth II.
-                </h6>
-              </div>
-            </div>
-            <div className="coin">
-              <img src={coin} alt="coin" />
-              <div className="text">
-                <h3>Canadian Beaver</h3>
-                <br />
-                <h6>
-                  "Canadian beaver". Unique coin with the image of a beaver.
-                  Face value - 5 cents. Created under Elizabeth II.
-                </h6>
-              </div>
-            </div>
-          </div>
-          <div className="right">
-            <div className="coin">
-              <img src={coin} alt="coin" />
-              <div className="text">
-                <h3>Canadian Beaver</h3>
-                <br />
-                <h6>
-                  "Canadian beaver". Unique coin with the image of a beaver.
-                  Face value - 5 cents. Created under Elizabeth II.
-                </h6>
-              </div>
-            </div>
-            <div className="coin">
-              <img src={coin} alt="coin" />
-              <div className="text">
-                <h3>Canadian Beaver</h3>
-                <br />
-                <h6>
-                  "Canadian beaver". Unique coin with the image of a beaver.
-                  Face value - 5 cents. Created under Elizabeth II.
-                </h6>
-              </div>
-            </div>
-            <div className="coin">
-              <img src={coin} alt="coin" />
-              <div className="text">
-                <h3>Canadian Beaver</h3>
-                <br />
-                <h6>
-                  "Canadian beaver". Unique coin with the image of a beaver.
-                  Face value - 5 cents. Created under Elizabeth II.
-                </h6>
-              </div>
-            </div>
-          </div>
+            </Link>
+          ))}
         </div>
       </div>
     </main>
