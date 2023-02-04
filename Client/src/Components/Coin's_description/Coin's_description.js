@@ -12,7 +12,7 @@ function Coin_description() {
       //burda pathname budur /description/:id
       fetch(`http://localhost:3000${pathname}`)
         .then((response) => response.json())
-        .then((data) => setCoin(data))
+        .then((data) => setCoin(...data))
         .catch((error) => console.error(error));
     }
   }, [coin]);
@@ -21,63 +21,46 @@ function Coin_description() {
       {
         <div className="coin_description_content">
           <div className="coins">
-            <img src="asd" alt="coin_observe" />
-            <img src="awdwa" alt="coin_reverse" />
+            <img src={coin.linkObserve} alt="coin_observe" />
+            <img src={coin.linkReverse} alt="coin_reverse" />
           </div>
           <div className="description">
             <div className="up">
-              <h1>{coin[0].coinname}</h1>
+              <h1>{coin.coinname}</h1>
               <div className="allps">
-                <p>
-                  "Canadian beaver". Unique coin with the image of a beaver.
-                  Face value - 5 cents. Created under Elizabeth II.
-                </p>
+                <p>{coin.shortDesc}</p>
                 <br />
-                <p>
-                  In the center of the obverse is a portrait of Queen Elizabeth
-                  II, the profile is directed to the right. The inscription on
-                  the left semicircle (English) ELIZABETH II, on the right
-                  semicircle D · G · REGINA (ELIZABETH II QUEEN by the Grace of
-                  GOD) with dots. Below is a mint mark.
-                </p>
-                <br />
-                <p>
-                  In the center of the coin reverse is a Canadian beaver on a
-                  rock sticking out of the water. At the top is a semicircle
-                  with the inscription "5 cents" between two maple leaves. At
-                  the bottom in two lines is the inscription CANADA (CANADA) and
-                  the year of minting.
-                </p>
+                <p>{coin.longDesc}</p>
               </div>
 
               <table>
                 <tr>
                   <td>Issuing Country</td>
-                  <td>CANADA</td>
+                  <td>{coin.country}</td>
                 </tr>
                 <tr>
                   <td>Composition</td>
-                  <td>CANADA</td>
+                  <td>{coin.metal}</td>
                 </tr>
                 <tr>
                   <td>Quality</td>
-                  <td>CANADA</td>
+                  <td>{coin.quality}</td>
                 </tr>
                 <tr>
                   <td>Denomination</td>
-                  <td>CANADA</td>
+                  <td>coin.denominations</td>
                 </tr>
                 <tr>
                   <td>Year</td>
-                  <td>CANADA</td>
+                  <td>{coin.year}</td>
                 </tr>
                 <tr>
                   <td>Weight</td>
-                  <td>CANADA</td>
+                  <td>{coin.weight}</td>
                 </tr>
                 <tr>
                   <td>Price</td>
-                  <td>CANADA</td>
+                  <td>{coin.price}</td>
                 </tr>
               </table>
             </div>
