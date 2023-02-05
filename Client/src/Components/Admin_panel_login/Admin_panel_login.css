@@ -30,12 +30,36 @@
   height: 48px;
   margin-bottom: 30px;
 }
-.admin_panel_login_main .admin_panel_login_content .login .login_into button {
+.admin_panel_login_main
+  .admin_panel_login_content
+  .login
+  .login_into
+  .admin_panel_login_back_sign_in {
+  display: flex;
+  justify-content: center;
+}
+.admin_panel_login_main
+  .admin_panel_login_content
+  .login
+  .login_into
+  .admin_panel_login_back_sign_in
+  .admin_panel_login_back_sign_in_into
+  button {
   width: 120px;
   height: 48px;
   background-color: #833ae0;
   border-width: 0px;
   color: white;
+}
+.admin_panel_login_main
+  .admin_panel_login_content
+  .login
+  .login_into
+  .admin_panel_login_back_sign_in
+  .admin_panel_login_back_sign_in_into {
+  width: 270px;
+  display: flex;
+  justify-content: space-between;
 }
 .admin_panel_login_main .admin_panel_login_content .login .login_into label {
   width: 500;
@@ -43,7 +67,4 @@
 }
 .admin_panel_login_main .admin_panel_login_content .login .login_into {
   width: 374px;
-}
-.admin_panel_login_main .admin_panel_login_content .login .login_into div {
-  text-align: center;
 }

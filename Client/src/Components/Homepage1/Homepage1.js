@@ -22,9 +22,11 @@ function Homepage1() {
             <Link style={{ textDecoration: "none" }} to="/">
               Homepage
             </Link>
-            <Link to="/login">Sign in</Link>
+            <Link style={{ textDecoration: "none" }} to="/login">
+              Sign in
+            </Link>
           </header>
-          <div className="seach_place">
+          <div className="homepage1_seach_place">
             <label>Input field</label>
             <br />
             <input />

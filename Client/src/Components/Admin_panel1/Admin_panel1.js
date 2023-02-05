@@ -1,5 +1,7 @@
 import React from "react";
 import "../Admin_panel1/Admin_panel1.css";
+import circle from "../../icons/circle.svg";
+import { Link } from "react-router-dom";
 function Admin_panel1() {
   return (
     <main className="admin_panel1_main">
@@ -7,10 +9,10 @@ function Admin_panel1() {
         <header>
           <h1>Admin panel</h1>
         </header>
-        <div className="seach_place">
+        <div className="admin_panel1_seach_place">
           <label>Input field</label>
           <br />
-          <input />
+          <input className="admin_panel1_seach_place_input" />
           <button className="seach_button">Seach</button>
           <br />
         </div>
@@ -53,8 +55,12 @@ function Admin_panel1() {
           </div>
         </div>
         <div className="add_new_coin">
-          <img src="./images/circle.svg" alt="circle" />
-          <a href="">Add a new coin</a>
+          <Link to="/adminpanel2">
+            <img src={circle} alt="circle" />
+          </Link>
+          <Link to="/adminpanel2">
+            <a href="">Add a new coin</a>
+          </Link>
         </div>
       </div>
     </main>

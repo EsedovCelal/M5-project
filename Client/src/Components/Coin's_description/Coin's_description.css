@@ -55,8 +55,12 @@
 .description .up .allps :last-child {
   margin-bottom: 40px;
 }
-.description .down a {
+.description .coin_description_down button {
   font-weight: 400;
   font-size: 10px;
-  color: #000000;
+  color: white;
+  background-color: #833ae0;
+  border-width: 0px;
+  height: 30px;
+  width: 100px;
 }

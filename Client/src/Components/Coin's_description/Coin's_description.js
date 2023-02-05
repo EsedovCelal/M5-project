@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import "../Coin's_description/Coin's_description.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Coin_description() {
   const [coin, setCoin] = useState([]);
+  const navigate = useNavigate(); // səhifəni geriyə atmaq üçün "go back to the list"
   //bu hissədə linkdən id götürülüb fetchdə istifadə edilirş
   const currentUrl = window.location.href;
   const url = new URL(currentUrl);
@@ -15,7 +17,7 @@ function Coin_description() {
         .then((data) => setCoin(...data))
         .catch((error) => console.error(error));
     }
-  }, [coin]);
+  }, [coin, pathname]);
   return (
     <main className="coin_description_main">
       {
@@ -48,7 +50,7 @@ function Coin_description() {
                 </tr>
                 <tr>
                   <td>Denomination</td>
-                  <td>coin.denominations</td>
+                  <td>{coin.denomination}</td>
                 </tr>
                 <tr>
                   <td>Year</td>
@@ -64,8 +66,8 @@ function Coin_description() {
                 </tr>
               </table>
             </div>
-            <div className="down">
-              <a href="">Back to the list</a>
+            <div className="coin_description_down">
+              <button onClick={() => navigate(-1)}>Back to the list</button>
             </div>
           </div>
         </div>

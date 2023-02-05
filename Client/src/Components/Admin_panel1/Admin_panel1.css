@@ -17,17 +17,17 @@ header h1 {
   font-size: 50px;
   margin-bottom: 25px;
 }
-.seach_place label {
+.admin_panel1_seach_place label {
   font-weight: 500;
   font-size: 14px;
 }
-.seach_place input {
+.admin_panel1_seach_place .admin_panel1_seach_place_input {
   width: 374px;
   height: 48px;
   border: 1px solid #000000;
   margin-bottom: 10px;
 }
-.seach_place button {
+.admin_panel1_seach_place button {
   background-color: #833ae0;
   width: 120px;
   height: 51px;
@@ -35,11 +35,11 @@ header h1 {
   color: white;
   margin-left: 30px;
 }
-.seach_place a {
+.admin_panel1_seach_place a {
   margin-right: 9px;
   font-weight: 300;
 }
-.seach_place {
+.admin_panel1_seach_place {
   margin-bottom: 60px;
 }
 .admin_panel1_main .coin_info img,

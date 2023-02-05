@@ -22,10 +22,15 @@ function Adminpanellogin() {
               <input />
             </label>
             <br />
-            <div>
-              <Link to="/adminpanel1">
-                <button>Sign in</button>
-              </Link>
+            <div className="admin_panel_login_back_sign_in">
+              <div className="admin_panel_login_back_sign_in_into">
+                <Link to="/">
+                  <button>Back</button>
+                </Link>
+                <Link to="/adminpanel1">
+                  <button>Sign in</button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
-function AdminPanel2() {
+import "../Admin_panel2/Admin_panel2.css";
+function Admin_panel2() {
   return (
     <div>
       <main class="main">
@@ -96,4 +97,4 @@ function AdminPanel2() {
     </div>
   );
 }
-export default AdminPanel2;
+export default Admin_panel2;

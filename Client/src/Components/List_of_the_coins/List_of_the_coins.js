@@ -3,8 +3,10 @@ import "../List_of_the_coins/List_of_the_coins.css";
 import { Link } from "react-router-dom";
 import arrow_down from "../../icons/arrow_down.svg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Listofthecoins() {
   const [info, setInfo] = useState([]);
+  const navigate = useNavigate(); // səhifəni geriyə atmaq üçün
   // bu hissədə 3 catgory dən hansı seçilirsə ona uyğun fetch atılır
   const currentUrl = window.location.href;
   const url = new URL(currentUrl);
@@ -16,17 +18,18 @@ function Listofthecoins() {
         .then((data) => setInfo(data))
         .catch((error) => console.error(error));
     }
-  }, [info]);
+  }, [info, pathname]);
   return (
-    <main className="Listofthecoins_main">
-      <div className="content">
-        <header>
+    <main className="listofthecoins_main">
+      <div className="listofthecoins_content">
+        <header className="listofthecoins_header">
           <h1>List of the coins</h1>
           <h6>
-            <span>Homepage</span> — List of the coins
+            <span onClick={() => navigate(-1)}>Homepage</span> — List of the
+            coins
           </h6>
         </header>
-        <div className="seach_place">
+        <div className="listofthecoins_seach_place">
           <label>Input field</label>
           <br />
           <input />
@@ -35,9 +38,12 @@ function Listofthecoins() {
           <Link to="/advancedfilter">Advanced filter</Link>
           <img src={arrow_down} alt="arrow_down" />
         </div>
-        <div className="coins">
+        <div className="listofthecoins_coins">
           {info.map((coin) => (
-            <Link to={`/description/${coin.id}`}>
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`/description/${coin.id}`}
+            >
               <div className="coin">
                 <img src={coin.linkObserve} alt="coin" />
                 <div className="text">
