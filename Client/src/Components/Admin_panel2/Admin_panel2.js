@@ -3,11 +3,11 @@ import "../Admin_panel2/Admin_panel2.css";
 function Admin_panel2() {
   return (
     <div>
-      <main class="main">
-        <div id="header">
+      <main class="admin_panel2_main">
+        <div id="admin_panel2_header">
           <h1>Admin panel</h1>
         </div>
-        <div class="inputs">
+        <div class="admin_panel2_inputs">
           <div class="left">
             <label for="">
               <br />

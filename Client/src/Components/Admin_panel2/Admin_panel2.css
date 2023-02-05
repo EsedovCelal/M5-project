@@ -6,45 +6,45 @@
   font-weight: 500;
   font-size: 14px;
 }
-.main {
+.admin_panel2_main {
   width: 1280px;
   max-height: 720px;
   margin-left: 52px;
   margin-top: 52px;
   margin-right: 120px;
 }
-.main #header h1 {
+.admin_panel2_main #admin_panel2_header h1 {
   font-weight: 300;
   font-size: 50px;
 }
-.main .inputs input {
+.admin_panel2_main .admin_panel2_inputs input {
   width: 374px;
   height: 48px;
   margin-bottom: 20px;
 }
-.main .inputs .descriptions {
+.admin_panel2_main .admin_panel2_inputs .descriptions {
   height: 138px;
   margin-bottom: 20px;
 }
-.main .inputs {
+.admin_panel2_main .admin_panel2_inputs {
   display: flex;
   width: 1182px;
   justify-content: space-between;
 }
-.main .inputs .right button {
+.admin_panel2_main .admin_panel2_inputs .right button {
   width: 120px;
   height: 48px;
   border-width: 0px;
 }
-.main .inputs .right div button:first-child {
+.admin_panel2_main .admin_panel2_inputs .right div button:first-child {
   background-color: #833ae0;
   color: white;
   margin-right: 30px;
 }
-.main .inputs .right {
+.admin_panel2_main .admin_panel2_inputs .right {
   display: grid;
   grid-gap: 270px;
 }
-.main .inputs .right .buttons {
+.admin_panel2_main .admin_panel2_inputs .right .buttons {
   text-align: center;
 }
