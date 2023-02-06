@@ -32,7 +32,7 @@ function Listofthecoins() {
         <div className="listofthecoins_seach_place">
           <label>Input field</label>
           <br />
-          <input />
+          <input className="listofthecoins_seach_input" />
           <button className="seach_button">Seach</button>
           <br />
           <Link to="/advancedfilter">Advanced filter</Link>

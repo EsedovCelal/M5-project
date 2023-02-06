@@ -34,6 +34,7 @@ header h1 {
   border-width: 0px;
   color: white;
   margin-left: 30px;
+  border-radius: 5px;
 }
 .admin_panel1_seach_place a {
   margin-right: 9px;

@@ -41,6 +41,7 @@ header:first-child {
   border-width: 0px;
   color: white;
   margin-left: 30px;
+  border-radius: 5px;
 }
 .homepage2_seach_place a {
   margin-right: 9px;

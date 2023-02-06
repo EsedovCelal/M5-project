@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../Coin's_description/Coin's_description.css";
+import "typeface-roboto";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 function Coin_description() {

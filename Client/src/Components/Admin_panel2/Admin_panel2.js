@@ -1,9 +1,11 @@
 import React from "react";
 import "../Admin_panel2/Admin_panel2.css";
+import { useNavigate } from "react-router-dom";
 function Admin_panel2() {
+  const navigate = useNavigate(); // səhifəni geriyə atmaq üçün "go back to the list"
   return (
-    <div>
-      <main class="admin_panel2_main">
+    <main className="admin_panel2_main">
+      <div class="admin_panel2_contain">
         <div id="admin_panel2_header">
           <h1>Admin panel</h1>
         </div>
@@ -89,12 +91,12 @@ function Admin_panel2() {
             </div>
             <div class="buttons">
               <button>Save</button>
-              <button>Cancel</button>
+              <button onClick={() => navigate(-1)}>Cancel</button>
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
 export default Admin_panel2;
