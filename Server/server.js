@@ -99,7 +99,7 @@ app.get("/description/:id", function (req, res) {
 //   );
 // });
 app.get("/", function (req, res) {
-  //Home page üçün atılan fetch
+  //Home page də atılan category üçün fetch
   connection.query(
     "SELECT * FROM coin_informations_category_name;",
     (err, data) => {
@@ -118,7 +118,7 @@ app.post("/post", function (req, res) {
     [newinfo],
     (err, data) => {
       if (err) return res.status(500).json(err);
-      return res.send("Added new info");
+      return res.send("Added new info", data);
     }
   );
 });
