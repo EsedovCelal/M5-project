@@ -18,6 +18,9 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-weight: 300;
+  font-size: 50px;
+  margin-bottom: 25px;
 }
 header:first-child:-webkit-any-link {
   font-weight: 300;
@@ -43,13 +46,19 @@ header:first-child:-webkit-any-link {
   margin-left: 30px;
   border-radius: 5px;
 }
-.homepage1_seach_place a {
+.homepage1_seach_place .hamepage1_adv_img h5 {
   margin-right: 9px;
   font-weight: 300;
+  text-decoration: underline;
+  font-size: 14px;
 }
-.homepage1_seach_place {
+.homepage1_seach_place .hamepage1_adv_img {
+  display: flex;
   margin-bottom: 60px;
 }
+/* .homepage1_seach_place {
+  margin-bottom: 60px;
+} */
 .homepage1_coins {
   display: flex;
   column-gap: 109px;
@@ -75,6 +84,11 @@ header:first-child:-webkit-any-link {
 }
 .texts {
   margin-bottom: 10px;
+}
+.homepage1_main .homepage1_content .main_inputs {
+  display: flex;
+  width: 73%;
+  justify-content: space-between;
 }
 @media (max-width: 768px) {
 }

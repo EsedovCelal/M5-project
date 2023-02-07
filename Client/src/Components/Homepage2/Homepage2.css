@@ -14,7 +14,7 @@
   margin-right: 120px;
   margin-bottom: 151px;
 }
-header:first-child {
+.homepage2_main .homepage2_content header:first-child {
   font-weight: 300;
   font-size: 50px;
   margin-bottom: 25px;
@@ -65,7 +65,6 @@ header:first-child {
 }
 .main_inputs_right {
   height: 156px;
-  /* width: 386px; */
 }
 .main_inputs_right .up {
   margin-top: 17px;

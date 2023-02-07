@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../Homepage1/Homepage1.css";
 import arrow_down from "../../icons/arrow_down.svg";
+import arrow_up from "../../icons/arrow_up.svg";
 import arrow_right from "../../icons/arrow_right.svg";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 function Homepage1() {
   const [info, setInfo] = useState([]);
+  const [isToggle, setIsToggle] = useState(false); // Advanced filter üçün display none display block
+  const changedisplay = () => {
+    //bu hissədə advanced üstünə basanda block display və arraw down up üçün true false edir
+    setIsToggle(!isToggle);
+  };
   useEffect(() => {
     if (info.length === 0) {
       fetch("http://localhost:3000/")
@@ -32,21 +37,81 @@ function Homepage1() {
             <input />
             <button className="seach_button">Seach</button>
             <br />
-            <Link to="/advancedfilter">Advanced filter</Link>
-            <img src={arrow_down} alt="arrow_down" />
+            <div className="hamepage1_adv_img" onClick={changedisplay}>
+              <h5>Advanced filter</h5>
+              {/* <Link to="/advancedfilter">Advanced filter</Link> */}
+              <img
+                src={!isToggle ? arrow_down : arrow_up}
+                alt="arrow_down_and_up"
+              />
+            </div>
           </div>
-          <div className="homepage1_coins">
-            {info.map((coin) => (
-              <div className="homepage1_coin">
-                <div className="texts">
-                  <h3>{coin.category_name} coins</h3>
-                  <Link to={`/${coin.category_name}`}>Show all</Link>
-                  <img src={arrow_right} alt="arrow_right" />
-                </div>
-                <img className="texts_coin" src={coin.linkObserve} alt="coin" />
+          {isToggle ? (
+            <div className="main_inputs">
+              <div className="main_inputs_left">
+                <label for="">
+                  <br />
+                  Issuing country
+                  <br />
+                  <input />
+                </label>
+                <label for="">
+                  <br />
+                  Metal
+                  <br />
+                  <input />
+                </label>
+                <label for="">
+                  <br />
+                  Quality of the coin
+                  <br />
+                  <input />
+                </label>
               </div>
-            ))}
-          </div>
+              <div className="main_inputs_right">
+                <div className="up">
+                  <label for="">
+                    Price
+                    <br />
+                    <label for="" className="up_label">
+                      from
+                      <input type="text" />
+                      to
+                      <input type="text" />
+                    </label>
+                  </label>
+                </div>
+                <div className="down">
+                  <label for="">
+                    Year of issue <br />
+                    <label for="" className="down_label">
+                      from
+                      <input type="text" />
+                      to
+                      <input type="text" />
+                    </label>
+                  </label>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="homepage1_coins">
+              {info.map((coin) => (
+                <div className="homepage1_coin">
+                  <div className="texts">
+                    <h3>{coin.category_name} coins</h3>
+                    <Link to={`/${coin.category_name}`}>Show all</Link>
+                    <img src={arrow_right} alt="arrow_right" />
+                  </div>
+                  <img
+                    className="texts_coin"
+                    src={coin.linkObserve}
+                    alt="coin"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </div>

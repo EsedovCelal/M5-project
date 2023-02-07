@@ -7,6 +7,23 @@
 .listofthecoins_main {
   min-width: 730px;
 }
+.listofthecoins_main
+  .listofthecoins_content
+  .listofthecoins_seach_place
+  .listofthecoins_adv_img
+  h5 {
+  margin-right: 9px;
+  font-weight: 300;
+  text-decoration: underline;
+  font-size: 14px;
+}
+.listofthecoins_main
+  .listofthecoins_content
+  .listofthecoins_seach_place
+  .listofthecoins_adv_img {
+  display: flex;
+  margin-bottom: 60px;
+}
 .listofthecoins_content {
   margin-left: 52px;
   margin-top: 52px;
@@ -55,9 +72,6 @@ span {
 .listofthecoins_seach_place a {
   margin-right: 9px;
   font-weight: 300;
-}
-.listofthecoins_seach_place {
-  margin-bottom: 25px;
 }
 .listofthecoins_main .listofthecoins_coins .coin img {
   width: 120px;
