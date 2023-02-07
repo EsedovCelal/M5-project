@@ -80,3 +80,5 @@ header:first-child:-webkit-any-link {
 .texts {
   margin-bottom: 10px;
 }
+@media (max-width: 768px) {
+}

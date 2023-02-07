@@ -5,8 +5,7 @@
   padding: 0px;
 }
 .listofthecoins_main {
-  width: 1280px;
-  max-height: 720px;
+  min-width: 730px;
 }
 .listofthecoins_content {
   margin-left: 52px;
@@ -84,7 +83,7 @@ span {
 }
 .listofthecoins_coins {
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
 }

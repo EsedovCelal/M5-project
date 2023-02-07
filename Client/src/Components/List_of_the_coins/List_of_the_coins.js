@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Listofthecoins() {
   const [info, setInfo] = useState([]);
   const navigate = useNavigate(); // səhifəni geriyə atmaq üçün
-  // bu hissədə 3 catgory dən hansı seçilirsə ona uyğun fetch atılır
+  //#region bu hissədə 3 catgory dən hansı seçilirsə ona uyğun fetch atılır
   const currentUrl = window.location.href;
   const url = new URL(currentUrl);
   const pathname = url.pathname;
@@ -19,6 +19,7 @@ function Listofthecoins() {
         .catch((error) => console.error(error));
     }
   }, [info, pathname]);
+  //#endregion
   return (
     <main className="listofthecoins_main">
       <div className="listofthecoins_content">

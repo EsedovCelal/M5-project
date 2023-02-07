@@ -1,8 +1,9 @@
 import React from "react";
 import "../Homepage2/Homepage2.css";
 import arrow_up from "../../icons/arrow_up.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Homepage2() {
+  const navigate = useNavigate();
   return (
     <main className="homepage2_main">
       <div className="homepage2_content">
@@ -17,6 +18,7 @@ function Homepage2() {
           <input className="seach_input" />
           <button className="seach_button">Seach</button>
           <br />
+          <h3 onClick={() => navigate(-1)}>Advanced filter</h3>
           <Link to="/">Advanced filter</Link>
           <img src={arrow_up} alt="arrow_up" />
         </div>

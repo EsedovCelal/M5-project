@@ -114,11 +114,11 @@ app.get("/", function (req, res) {
 app.post("/post", function (req, res) {
   const newinfo = req.body;
   connection.query(
-    "INSERT INTO coin_informations SET ?",
+    "INSERT INTO coin_informations SET ?;",
     [newinfo],
     (err, data) => {
       if (err) return res.status(500).json(err);
-      return res.send("Added new info", data);
+      return res.json("Added new coin's info");
     }
   );
 });

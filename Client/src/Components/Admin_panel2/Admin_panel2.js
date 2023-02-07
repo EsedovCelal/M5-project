@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../Admin_panel2/Admin_panel2.css";
 import { useNavigate } from "react-router-dom";
 function Admin_panel2() {
+  //#region useStates
   const [category, setCategory] = useState("");
   const [coinname, setCoinname] = useState("");
   const [denomination, setDenomination] = useState("");
@@ -15,31 +16,33 @@ function Admin_panel2() {
   const [longDesc, setLongDesc] = useState("");
   const [linkObserve, setLinkObserve] = useState("");
   const [linkReverse, setLinkReverse] = useState("");
+  //#endregion
   const navigate = useNavigate(); // səhifəni geriyə atmaq üçün "go back to the list"
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch("http://localhost:3000/post", {
       method: "POST",
+      headers: { "Content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify({
-        category: category,
-        coinname: coinname,
-        denomination: denomination,
-        quality: quality,
-        year: year,
-        weight: weight,
-        price: price,
-        country: country,
-        metal: metal,
-        shortDesc: shortDesc,
-        longDesc: longDesc,
-        linkObserve: linkObserve,
-        linkReverse: linkReverse,
+        category,
+        coinname,
+        denomination,
+        quality,
+        year,
+        weight,
+        price,
+        country,
+        metal,
+        shortDesc,
+        longDesc,
+        linkObserve,
+        linkReverse,
       }),
-      Headers: { "Content-type": "application/json; charset=UTF-8" },
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => alert(data))
       .catch((error) => console.log(error.message));
+    event.target.reset();
   };
   return (
     <main className="admin_panel2_main">
@@ -54,6 +57,7 @@ function Admin_panel2() {
               Coin name
               <br />
               <input
+                required
                 type="text"
                 onChange={(e) => setCoinname(e.target.value)}
               />
@@ -63,6 +67,7 @@ function Admin_panel2() {
               Face value
               <br />
               <input
+                required
                 type="text"
                 onChange={(e) => setDenomination(e.target.value)}
               />
@@ -71,25 +76,41 @@ function Admin_panel2() {
               <br />
               Year of issue
               <br />
-              <input type="number" onChange={(e) => setYear(e.target.value)} />
+              <input
+                required
+                type="number"
+                onChange={(e) => setYear(e.target.value)}
+              />
             </label>
             <label htmlFor="">
               <br />
               Price
               <br />
-              <input type="text" onChange={(e) => setPrice(e.target.value)} />
+              <input
+                required
+                type="text"
+                onChange={(e) => setPrice(e.target.value)}
+              />
             </label>
             <label htmlFor="">
               <br />
               Country
               <br />
-              <input type="text" onChange={(e) => setCountry(e.target.value)} />
+              <input
+                required
+                type="text"
+                onChange={(e) => setCountry(e.target.value)}
+              />
             </label>
             <label htmlFor="">
               <br />
               Metal
               <br />
-              <input type="text" onChange={(e) => setMetal(e.target.value)} />
+              <input
+                required
+                type="text"
+                onChange={(e) => setMetal(e.target.value)}
+              />
             </label>
           </div>
           <div className="middle">
@@ -98,6 +119,7 @@ function Admin_panel2() {
               Short description
               <br />
               <input
+                required
                 className="descriptions"
                 type="text"
                 onChange={(e) => setShortDesc(e.target.value)}
@@ -108,6 +130,7 @@ function Admin_panel2() {
               Long description
               <br />
               <input
+                required
                 className="descriptions"
                 type="text"
                 onChange={(e) => setLongDesc(e.target.value)}
@@ -117,13 +140,21 @@ function Admin_panel2() {
               <br />
               Quality of the coin
               <br />
-              <input type="text" onChange={(e) => setQuality(e.target.value)} />
+              <input
+                required
+                type="text"
+                onChange={(e) => setQuality(e.target.value)}
+              />
             </label>
             <label htmlFor="">
               <br />
               Weight
               <br />
-              <input type="text" onChange={(e) => setWeight(e.target.value)} />
+              <input
+                required
+                type="text"
+                onChange={(e) => setWeight(e.target.value)}
+              />
             </label>
           </div>
           <div className="right">
@@ -133,6 +164,7 @@ function Admin_panel2() {
                 Link to obverse image
                 <br />
                 <input
+                  required
                   type="text"
                   onChange={(e) => setLinkObserve(e.target.value)}
                 />
@@ -142,6 +174,7 @@ function Admin_panel2() {
                 Link to reverse image
                 <br />
                 <input
+                  required
                   type="text"
                   onChange={(e) => setLinkReverse(e.target.value)}
                 />
@@ -151,6 +184,7 @@ function Admin_panel2() {
                 Category
                 <br />
                 <input
+                  required
                   type="text"
                   onChange={(e) => setCategory(e.target.value)}
                 />
