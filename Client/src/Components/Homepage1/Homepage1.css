@@ -54,10 +54,6 @@ header:first-child:-webkit-any-link {
   display: flex;
   column-gap: 109px;
 }
-/* .coin svg {
-  height: 214px;
-  width: 214;
-} */
 .homepage1_coin {
   width: 30%;
 }
