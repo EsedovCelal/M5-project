@@ -73,40 +73,6 @@ app.get("/description/:id", function (req, res) {
     }
   );
 });
-//region
-// app.get("/bullion", function (req, res) {
-//   connection.query(
-//     'SELECT * FROM coin_informations WHERE category = "Bullion coins";',
-//     (err, data) => {
-//       if (err) {
-//         return res.status(500).send("There is hava a proble");
-//       }
-//       res.json(data);
-//     }
-//   );
-// });
-// app.get("/exclusive", function (req, res) {
-//   connection.query(
-//     'SELECT * FROM coin_informations WHERE category = "Exclusive coins";',
-//     (err, data) => {
-//       if (err) {
-//         return res.status(500).send("there is have a problem");
-//       }
-//       res.json(data);
-//     }
-//   );
-// });
-// app.get("/commemorative", function (req, res) {
-//   connection.query(
-//     'SELECT * FROM coin_informations WHERE category = "Commemorative coins";',
-//     (err, data) => {
-//       if (err) {
-//         return res.status(500).send("there is have a problem");
-//       }
-//       res.json(data);
-//     }
-//   );
-// });
 app.get("/", function (req, res) {
   //Home page də atılan category üçün fetch
   connection.query(
@@ -131,7 +97,28 @@ app.post("/post", function (req, res) {
     }
   );
 });
-// app.put(){};
+app.put("/adminpanel2/editcoin/:id", function (req, res) {
+  const { id } = req.params;
+  const newData = req.body;
+  if (!Object.keys(newData).length) {
+    return res.send("There have a problem");
+  }
+  connection.query(
+    "UPDATE coin_informations SET ? WHERE id = ?",
+    [newData, id],
+    (err, data) => {
+      if (!err) {
+        connection.query(
+          "SELECT * FROM coin_informations WHERE id = ?",
+          [id],
+          (err, data) => {
+            if (!err) res.json(data);
+          }
+        );
+      }
+    }
+  );
+});
 // app.delete(){};
 
 app.listen(3000, function () {

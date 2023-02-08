@@ -22,6 +22,7 @@
   height: 48px;
   margin-bottom: 20px;
   border: 1px solid #000000;
+  padding-left: 5px;
 }
 .admin_panel2_main .admin_panel2_contain .admin_panel2_inputs .descriptions {
   height: 134px;
