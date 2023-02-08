@@ -53,19 +53,19 @@ function Listofthecoins() {
         {isToggle ? (
           <div className="listofthecoins_main_inputs">
             <div className="main_inputs_left">
-              <label for="">
+              <label htmlFor="">
                 <br />
                 Issuing country
                 <br />
                 <input />
               </label>
-              <label for="">
+              <label htmlFor="">
                 <br />
                 Metal
                 <br />
                 <input />
               </label>
-              <label for="">
+              <label htmlFor="">
                 <br />
                 Quality of the coin
                 <br />
@@ -74,10 +74,10 @@ function Listofthecoins() {
             </div>
             <div className="main_inputs_right">
               <div className="up">
-                <label for="">
+                <label htmlFor="">
                   Price
                   <br />
-                  <label for="" className="up_label">
+                  <label htmlFor="" className="up_label">
                     from
                     <input type="text" />
                     to
@@ -86,9 +86,9 @@ function Listofthecoins() {
                 </label>
               </div>
               <div className="down">
-                <label for="">
+                <label htmlFor="">
                   Year of issue <br />
-                  <label for="" className="down_label">
+                  <label htmlFor="" className="down_label">
                     from
                     <input type="text" />
                     to
@@ -102,6 +102,7 @@ function Listofthecoins() {
           <div className="listofthecoins_coins">
             {info.map((coin) => (
               <Link
+                key={coin.id}
                 style={{ textDecoration: "none" }}
                 to={`/description/${coin.id}`}
               >

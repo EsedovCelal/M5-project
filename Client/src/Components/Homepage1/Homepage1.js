@@ -49,19 +49,19 @@ function Homepage1() {
           {isToggle ? (
             <div className="main_inputs">
               <div className="main_inputs_left">
-                <label for="">
+                <label htmlFor="">
                   <br />
                   Issuing country
                   <br />
                   <input />
                 </label>
-                <label for="">
+                <label htmlFor="">
                   <br />
                   Metal
                   <br />
                   <input />
                 </label>
-                <label for="">
+                <label htmlFor="">
                   <br />
                   Quality of the coin
                   <br />
@@ -70,10 +70,10 @@ function Homepage1() {
               </div>
               <div className="main_inputs_right">
                 <div className="up">
-                  <label for="">
+                  <label htmlFor="">
                     Price
                     <br />
-                    <label for="" className="up_label">
+                    <label htmlFor="" className="up_label">
                       from
                       <input type="text" />
                       to
@@ -82,9 +82,9 @@ function Homepage1() {
                   </label>
                 </div>
                 <div className="down">
-                  <label for="">
+                  <label htmlFor="">
                     Year of issue <br />
-                    <label for="" className="down_label">
+                    <label htmlFor="" className="down_label">
                       from
                       <input type="text" />
                       to
@@ -97,7 +97,7 @@ function Homepage1() {
           ) : (
             <div className="homepage1_coins">
               {info.map((coin) => (
-                <div className="homepage1_coin">
+                <div key={coin.id} className="homepage1_coin">
                   <div className="texts">
                     <h3>{coin.category_name} coins</h3>
                     <Link to={`/${coin.category_name}`}>Show all</Link>

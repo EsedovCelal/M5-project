@@ -37,34 +37,36 @@ function Coin_description() {
               </div>
 
               <table>
-                <tr>
-                  <td>Issuing Country</td>
-                  <td>{coin.country}</td>
-                </tr>
-                <tr>
-                  <td>Composition</td>
-                  <td>{coin.metal}</td>
-                </tr>
-                <tr>
-                  <td>Quality</td>
-                  <td>{coin.quality}</td>
-                </tr>
-                <tr>
-                  <td>Denomination</td>
-                  <td>{coin.denomination}</td>
-                </tr>
-                <tr>
-                  <td>Year</td>
-                  <td>{coin.year}</td>
-                </tr>
-                <tr>
-                  <td>Weight</td>
-                  <td>{coin.weight}</td>
-                </tr>
-                <tr>
-                  <td>Price</td>
-                  <td>{coin.price}</td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td>Issuing Country</td>
+                    <td>{coin.country}</td>
+                  </tr>
+                  <tr>
+                    <td>Composition</td>
+                    <td>{coin.metal}</td>
+                  </tr>
+                  <tr>
+                    <td>Quality</td>
+                    <td>{coin.quality}</td>
+                  </tr>
+                  <tr>
+                    <td>Denomination</td>
+                    <td>{coin.denomination}</td>
+                  </tr>
+                  <tr>
+                    <td>Year</td>
+                    <td>{coin.year}</td>
+                  </tr>
+                  <tr>
+                    <td>Weight</td>
+                    <td>{coin.weight}</td>
+                  </tr>
+                  <tr>
+                    <td>Price</td>
+                    <td>{coin.price}</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
             <div className="coin_description_down">

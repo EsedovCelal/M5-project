@@ -1,4 +1,4 @@
-.homepage2_main * {
+/* .homepage2_main * {
   font-family: "Roboto", sans-serif;
   color: #000000;
   margin: 0px;
@@ -71,7 +71,7 @@
 }
 .main_inputs_left :nth-child(1) input,
 :nth-child(2) input {
-  /*buranı dəyişdəcəm*/
+
   margin-bottom: 20px;
 }
 .homepage2_main .main_inputs {
@@ -82,4 +82,4 @@
 .down_label {
   font-weight: 300;
   font-size: 14px;
-}
+} */

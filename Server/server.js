@@ -25,10 +25,19 @@ connection.connect((err) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.get("/getlasttwocoins", function (req, res) {
-  // adminpanel1 də son əlavə edilən 2 coin göstərmək üçün fetch
+app.get("/adminpanel1/allcoins", function (req, res) {
+  connection.query("SELECT * FROM coin_informations;", (err, data) => {
+    if (err) {
+      return res.status(500).send("There is have a problem");
+    }
+    res.json(data);
+  });
+});
+app.get("/adminpanel2/editcoin/:id", function (req, res) {
+  const { id } = req.params;
+  // adminpanel1 də edilən edit və delete üçün fetch
   connection.query(
-    "SELECT * FROM coin_informations ORDER BY id DESC LIMIT 2;",
+    `SELECT * FROM coin_informations WHERE id = "${id}";`,
     (err, data) => {
       if (err) {
         return res.status(500).send("There is hava a proble");

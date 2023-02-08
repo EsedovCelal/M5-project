@@ -10,13 +10,13 @@ function Adminpanellogin() {
         </header>
         <div className="login">
           <div className="login_into">
-            <label for="">
+            <label htmlFor="">
               Login
               <br />
               <input />
             </label>
             <br />
-            <label for="">
+            <label htmlFor="">
               Password
               <br />
               <input />
@@ -27,7 +27,7 @@ function Adminpanellogin() {
                 <Link to="/">
                   <button>Back</button>
                 </Link>
-                <Link to="/adminpanel1">
+                <Link to="/adminpanel1/allcoins">
                   <button>Sign in</button>
                 </Link>
               </div>

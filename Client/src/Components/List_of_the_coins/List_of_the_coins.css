@@ -101,3 +101,61 @@ span {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.listofthecoins_main .listofthecoins_content .listofthecoins_main_inputs {
+  display: flex;
+  justify-content: space-between;
+  width: 46%;
+}
+.listofthecoins_main
+  .listofthecoins_content
+  .listofthecoins_main_inputs
+  .main_inputs_left
+  input {
+  width: 374px;
+  height: 48px;
+  border: 1px solid #000000;
+}
+
+.listofthecoins_main
+  .listofthecoins_content
+  .listofthecoins_main_inputs
+  .main_inputs_left
+  :nth-child(1)
+  input,
+:nth-child(2) input {
+  margin-bottom: 20px;
+}
+.listofthecoins_main
+  .listofthecoins_content
+  .listofthecoins_main_inputs
+  .main_inputs_right
+  input {
+  width: 155px;
+  height: 48px;
+  border: 1px solid #000000;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.listofthecoins_main
+  .listofthecoins_content
+  .listofthecoins_main_inputs
+  .main_inputs_right {
+  height: 156px;
+}
+.listofthecoins_main
+  .listofthecoins_content
+  .listofthecoins_main_inputs
+  .main_inputs_right
+  .up {
+  margin-top: 17px;
+}
+.listofthecoins_main
+  .listofthecoins_content
+  .listofthecoins_main_inputs
+  .main_inputs_right
+  .up_label,
+.down_label {
+  font-weight: 300;
+  font-size: 14px;
+}

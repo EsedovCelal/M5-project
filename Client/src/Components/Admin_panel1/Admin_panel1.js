@@ -7,7 +7,7 @@ function Admin_panel1() {
   useEffect(() => {
     if (coin.length === 0) {
       //burda pathname budur /description/:id
-      fetch(`http://localhost:3000/getlasttwocoins`)
+      fetch(`http://localhost:3000/adminpanel1/allcoins`)
         .then((response) => response.json())
         .then((data) => setCoin(data))
         .catch((error) => console.error(error));
@@ -29,7 +29,7 @@ function Admin_panel1() {
       </div>
       <div className="commun_coin_info">
         {coin.map((coin) => (
-          <div className="coin_info">
+          <div key={coin.id} className="coin_info">
             <div>
               <img src={coin.linkObserve} alt="" />
             </div>
@@ -38,7 +38,10 @@ function Admin_panel1() {
               <p>{coin.shortDesc}</p>
             </div>
             <div>
-              <button>Edit</button>
+              <Link to={`/adminpanel2/editcoin/${coin.id}`}>
+                <button>Edit</button>
+              </Link>
+              {/* editə basib coini edit etmək üçün adminpanel2 bölməsinə yəni add coin componentinə keçid edir*/}
             </div>
             <div>
               <button>Delete</button>
@@ -49,9 +52,7 @@ function Admin_panel1() {
           <Link to="/adminpanel2">
             <img src={circle} alt="circle" />
           </Link>
-          <Link to="/adminpanel2">
-            <a href="">Add a new coin</a>
-          </Link>
+          <Link to="/adminpanel2">Add a new coin</Link>
         </div>
       </div>
     </main>

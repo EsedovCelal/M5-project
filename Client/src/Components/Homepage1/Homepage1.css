@@ -21,11 +21,15 @@
   font-weight: 300;
   font-size: 50px;
   margin-bottom: 25px;
+  min-width: 624px;
 }
 header:first-child:-webkit-any-link {
   font-weight: 300;
   font-size: 50px;
   margin-bottom: 25px;
+}
+.homepage1_seach_place {
+  min-width: 524px;
 }
 .homepage1_seach_place label {
   font-weight: 500;
@@ -56,12 +60,8 @@ header:first-child:-webkit-any-link {
   display: flex;
   margin-bottom: 60px;
 }
-/* .homepage1_seach_place {
-  margin-bottom: 60px;
-} */
 .homepage1_coins {
   display: flex;
-  column-gap: 109px;
 }
 .homepage1_coin {
   width: 30%;
@@ -87,8 +87,44 @@ header:first-child:-webkit-any-link {
 }
 .homepage1_main .homepage1_content .main_inputs {
   display: flex;
-  width: 73%;
+  max-width: 789px;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
+.homepage1_main .homepage1_content .main_inputs .main_inputs_left input {
+  width: 374px;
+  height: 48px;
+  border: 1px solid #000000;
+}
+
+.homepage1_main
+  .homepage1_content
+  .main_inputs
+  .main_inputs_left
+  :nth-child(1)
+  input,
+:nth-child(2) input {
+  margin-bottom: 20px;
+}
+.homepage1_main .homepage1_content .main_inputs .main_inputs_right input {
+  width: 155px;
+  height: 48px;
+  border: 1px solid #000000;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.homepage1_main .homepage1_content .main_inputs .main_inputs_right {
+  height: 156px;
+}
+.homepage1_main .homepage1_content .main_inputs .main_inputs_right .up {
+  margin-top: 17px;
+}
+.homepage1_main .homepage1_content .main_inputs .main_inputs_right .up_label,
+.down_label {
+  font-weight: 300;
+  font-size: 14px;
+}
+
 @media (max-width: 768px) {
 }
