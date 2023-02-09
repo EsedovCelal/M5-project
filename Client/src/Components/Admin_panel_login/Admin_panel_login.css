@@ -6,14 +6,9 @@
 }
 .admin_panel_login_main {
   margin: 52px;
-  /* width: 1280px;
-  max-height: 720px; */
 }
 .admin_panel_login_content {
   margin: auto;
-  /* margin-top: 52px; */
-  /* margin-right: 120px;
-  margin-bottom: 151px; */
 }
 .admin_panel_login_header h1 {
   font-weight: 300;
@@ -52,6 +47,7 @@
   border-width: 0px;
   color: white;
   border-radius: 5px;
+  cursor: pointer;
 }
 .admin_panel_login_main
   .admin_panel_login_content

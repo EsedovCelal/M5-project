@@ -37,6 +37,8 @@
   width: 120px;
   height: 48px;
   border-width: 0px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 .admin_panel2_main
   .admin_panel2_contain
