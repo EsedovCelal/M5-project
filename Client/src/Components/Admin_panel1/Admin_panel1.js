@@ -5,18 +5,23 @@ import { Link } from "react-router-dom";
 import "react-confirm-alert/src/react-confirm-alert.css";
 function Admin_panel1() {
   const [coin, setCoin] = useState([]);
+  const [render, setRender] = useState(false);
   // const currentUrl = window.location.href;
   // const url = new URL(currentUrl);
   // const pathname = url.pathname;
-  useEffect(() => {
-    if (coin.length === 0) {
-      //burda pathname budur /description/:id
-      fetch(`http://localhost:3000/adminpanel1/allcoins`)
-        .then((response) => response.json())
-        .then((data) => setCoin(data))
-        .catch((error) => console.error(error));
-    }
-  }, [coin]);
+  useEffect(
+    () => {
+      if (coin.length === 0) {
+        //burda pathname budur /description/:id
+        fetch(`http://localhost:3000/adminpanel1/allcoins`)
+          .then((response) => response.json())
+          .then((data) => setCoin(data))
+          .catch((error) => console.error(error));
+      }
+    },
+    [coin],
+    [render]
+  );
   const deleteitem = (event) => {
     const answer = window.confirm("Are you sure delete this coin ");
     if (answer) {
@@ -26,13 +31,23 @@ function Admin_panel1() {
         .then((response) => response.json())
         .then((data) => alert(data))
         .catch((error) => console.error(error));
+      let filtered = coin.filter(function (coin_one) {
+        return coin_one !== coin[event.target.id - 1];
+      });
+      setCoin(filtered);
+      setRender(true);
     }
-    console.log(event.target.id);
-    console.log(coin);
-    var filtered = coin.filter(function (coin_one) {
-      return coin_one.id !== event.target.id;
+    let filtered = coin.filter(function (coin_one) {
+      return coin_one !== coin[event.target.id - 1];
     });
-    console.log(filtered);
+    // console.log(event.target.id);
+    // console.log(event.target.id - 1);
+    // console.log("coin", coin[event.target.id - 1]);
+    console.log("filtered", filtered);
+    // console.log(
+    //   "index",
+    //   coin.indexOf((coin[event.target.id].id = event.target.id))
+    // );
   };
   return (
     <main className="admin_panel1_main">
