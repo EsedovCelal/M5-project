@@ -44,7 +44,6 @@ function Admin_panel2() {
         console.log(data);
         alert("Changed coin's info");
       });
-    // event.target.reset();
   };
   //#endregion
   //#region fetch coini edit etmək üçün atılır

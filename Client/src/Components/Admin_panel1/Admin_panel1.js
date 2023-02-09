@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../Admin_panel1/Admin_panel1.css";
 import circle from "../../icons/circle.svg";
 import { Link } from "react-router-dom";
+import "react-confirm-alert/src/react-confirm-alert.css";
 function Admin_panel1() {
   const [coin, setCoin] = useState([]);
+  // const currentUrl = window.location.href;
+  // const url = new URL(currentUrl);
+  // const pathname = url.pathname;
   useEffect(() => {
     if (coin.length === 0) {
       //burda pathname budur /description/:id
@@ -13,6 +17,23 @@ function Admin_panel1() {
         .catch((error) => console.error(error));
     }
   }, [coin]);
+  const deleteitem = (event) => {
+    const answer = window.confirm("Are you sure delete this coin ");
+    if (answer) {
+      fetch(`http://localhost:3000/adminpanel1/delete/${event.target.id}`, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => alert(data))
+        .catch((error) => console.error(error));
+    }
+    console.log(event.target.id);
+    console.log(coin);
+    var filtered = coin.filter(function (coin_one) {
+      return coin_one.id !== event.target.id;
+    });
+    console.log(filtered);
+  };
   return (
     <main className="admin_panel1_main">
       <div className="content">
@@ -44,7 +65,9 @@ function Admin_panel1() {
               {/* editə basib coini edit etmək üçün adminpanel2 bölməsinə yəni add coin componentinə keçid edir*/}
             </div>
             <div>
-              <button>Delete</button>
+              <button id={coin.id} onClick={deleteitem}>
+                Delete
+              </button>
             </div>
           </div>
         ))}

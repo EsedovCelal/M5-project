@@ -26,18 +26,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.get("/adminpanel1/allcoins", function (req, res) {
-  connection.query("SELECT * FROM coin_informations;", (err, data) => {
-    if (err) {
-      return res.status(500).send("There is have a problem");
+  connection.query(
+    "SELECT * FROM coin_informations WHERE isRemoved = 0;",
+    (err, data) => {
+      if (err) {
+        return res.status(500).send("There is have a problem");
+      }
+      res.json(data);
     }
-    res.json(data);
-  });
+  );
 });
 app.get("/adminpanel2/editcoin/:id", function (req, res) {
   const { id } = req.params;
   // adminpanel1 də edilən edit və delete üçün fetch
   connection.query(
-    `SELECT * FROM coin_informations WHERE id = "${id}";`,
+    `SELECT * FROM coin_informations WHERE id = "${id}" AND isRemoved = 0;`,
     (err, data) => {
       if (err) {
         return res.status(500).send("There is hava a proble");
@@ -50,7 +53,7 @@ app.get("/:keyword", function (req, res) {
   //bu hissədə categorylər alınır
   const { keyword } = req.params;
   connection.query(
-    `SELECT * FROM coin_informations WHERE category = "${keyword} coins";`,
+    `SELECT * FROM coin_informations WHERE category = "${keyword} coins" AND isremoved = 0;`,
     (err, data) => {
       if (err) {
         return res.status(500).send("There is hava a proble");
@@ -64,7 +67,7 @@ app.get("/description/:id", function (req, res) {
   // id yə görə hər bir coin məlumatı alınması üçün atılan fetch
   const { id } = req.params;
   connection.query(
-    `SELECT * FROM coin_informations WHERE id = "${id}";`,
+    `SELECT * FROM coin_informations WHERE id = "${id}" AND isremoved = 0;`,
     (err, data) => {
       if (err) {
         return res.status(500).send("There is have a error");
@@ -76,7 +79,7 @@ app.get("/description/:id", function (req, res) {
 app.get("/", function (req, res) {
   //Home page də atılan category üçün fetch
   connection.query(
-    "SELECT * FROM coin_informations_category_name;",
+    "SELECT * FROM coin_informations_category_name WHERE isremoved = 0;",
     (err, data) => {
       if (err) {
         return res.status(500).send("there is have a problem");
@@ -119,7 +122,18 @@ app.put("/adminpanel2/editcoin/:id", function (req, res) {
     }
   );
 });
-// app.delete(){};
+app.delete("/adminpanel1/delete/:id", function (req, res) {
+  const { id } = req.params;
+  connection.query(
+    `UPDATE coin_informations SET isremoved = '1' WHERE id = ${id};`,
+    (err, data) => {
+      if (!err) {
+        return res.json("Deleted selected coin");
+      }
+      res.status(500).json(err);
+    }
+  );
+});
 
 app.listen(3000, function () {
   console.log("connected successfully with port 3000");

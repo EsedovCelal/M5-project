@@ -17,7 +17,7 @@ function Admin_panel2() {
   const [linkObserve, setLinkObserve] = useState("");
   const [linkReverse, setLinkReverse] = useState("");
   const navigate = useNavigate(); // səhifəni geriyə atmaq üçün "go back to the list"
-  const handleSubmitforpost = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     fetch("http://localhost:3000/post", {
       //bu fetch post methoddur məqsəd info post etməkdir
@@ -42,16 +42,32 @@ function Admin_panel2() {
       .then((response) => response.json())
       .then((data) => alert(data))
       .catch((error) => console.log(error.message));
-    // event.target.reset();
+    resetValues();
   };
   //#endregion
+  const resetValues = () => {
+    // form reset
+    setCategory("");
+    setCoinname("");
+    setDenomination("");
+    setQuality("");
+    setYear("");
+    setWeight("");
+    setPrice("");
+    setCountry("");
+    setMetal("");
+    setShortDesc("");
+    setLongDesc("");
+    setLinkObserve("");
+    setLinkReverse("");
+  };
   return (
     <main className="admin_panel2_main">
       <div className="admin_panel2_contain">
         <div id="admin_panel2_header">
           <h1>Admin panel</h1>
         </div>
-        <form className="admin_panel2_inputs" onSubmit={handleSubmitforpost}>
+        <form className="admin_panel2_inputs" onSubmit={handleSubmit}>
           <div className="left">
             <label htmlFor="">
               <br />
