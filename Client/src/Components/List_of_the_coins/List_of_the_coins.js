@@ -34,8 +34,6 @@ function Listofthecoins() {
       .then((response) => response.json())
       .then((data) => setInfo(data))
       .catch((error) => console.error(error));
-    console.log(inputvalue);
-    console.log(pathname);
   };
   return (
     <main className="listofthecoins_main">

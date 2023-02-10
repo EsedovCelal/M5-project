@@ -4,6 +4,7 @@ import circle from "../../icons/circle.svg";
 import { Link } from "react-router-dom";
 function Admin_panel1() {
   const [coin, setCoin] = useState([]);
+  const [inputvalue, setInputvalue] = useState(""); // q = ? seach üçün inputun valuesi bura atılır
   useEffect(() => {
     if (coin.length === 0) {
       fetch(`http://localhost:3000/adminpanel1/allcoins`)
@@ -27,6 +28,13 @@ function Admin_panel1() {
       setCoin(filtered);
     }
   };
+  const fetchforSeach = (event) => {
+    //fetch atılır seachdə yazılan sözlərə görə
+    fetch(`http://localhost:3000/adminpanel1?q=${inputvalue}`)
+      .then((response) => response.json())
+      .then((data) => setCoin(data))
+      .catch((error) => console.error(error));
+  };
   return (
     <main className="admin_panel1_main">
       <div className="content">
@@ -36,8 +44,14 @@ function Admin_panel1() {
         <div className="admin_panel1_seach_place">
           <label>Input field</label>
           <br />
-          <input className="admin_panel1_seach_place_input" />
-          <button className="seach_button">Seach</button>
+          <input
+            value={inputvalue}
+            onChange={(e) => setInputvalue(e.target.value)}
+            className="admin_panel1_seach_place_input"
+          />
+          <button onClick={fetchforSeach} className="seach_button">
+            Seach
+          </button>
           <br />
         </div>
       </div>

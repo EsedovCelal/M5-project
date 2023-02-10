@@ -31,7 +31,19 @@ app.get("/seach/:keyword", function (req, res) {
   const { keyword } = req.params;
   console.log(seachword);
   connection.query(
-    `SELECT * FROM coin_informations WHERE category = "${keyword} coins" AND (coinname LIKE '%${seachword}%' OR shortDesc LIKE "%${seachword}%" OR longDesc LIKE "%${seachword}%");`,
+    `SELECT * FROM coin_informations WHERE category = "${keyword} coins" AND (coinname LIKE '%${seachword}%' OR shortDesc LIKE "%${seachword}%" OR longDesc LIKE "%${seachword}%") AND (isRemoved = 0);`,
+    (err, data) => {
+      if (err) {
+        return res.status(500).send("There is have a problem");
+      }
+      res.json(data);
+    }
+  );
+});
+app.get("/adminpanel1", function (req, res) {
+  const seachword = req.query.q;
+  connection.query(
+    `SELECT * FROM coin_informations WHERE (coinname LIKE '%${seachword}%' OR shortDesc LIKE "%${seachword}%" OR longDesc LIKE "%${seachword}%") AND (isRemoved = 0);`,
     (err, data) => {
       if (err) {
         return res.status(500).send("There is have a problem");
