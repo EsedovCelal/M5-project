@@ -25,6 +25,22 @@ connection.connect((err) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+app.get("/seach/:keyword", function (req, res) {
+  const seachword = req.query.q;
+  const { keyword } = req.params;
+  console.log(seachword);
+  connection.query(
+    `SELECT * FROM coin_informations WHERE category = "${keyword} coins" AND (coinname LIKE '%${seachword}%' OR shortDesc LIKE "%${seachword}%" OR longDesc LIKE "%${seachword}%");`,
+    (err, data) => {
+      if (err) {
+        return res.status(500).send("There is have a problem");
+      }
+      res.json(data);
+    }
+  );
+});
+
 app.get("/adminpanel1/allcoins", function (req, res) {
   connection.query(
     "SELECT * FROM coin_informations WHERE isRemoved = 0;",

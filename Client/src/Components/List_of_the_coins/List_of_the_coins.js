@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 function Listofthecoins() {
   const [info, setInfo] = useState([]);
   const [isToggle, setIsToggle] = useState(false); // Advanced filter üçün display none display block
+  const [inputvalue, setInputvalue] = useState(""); // q = ? seach üçün inputun valuesi bura atılır
   const navigate = useNavigate(); // səhifəni geriyə atmaq üçün
   //#region bu hissədə 3 catgory dən hansı seçilirsə ona uyğun fetch atılır
   const currentUrl = window.location.href;
@@ -18,6 +19,7 @@ function Listofthecoins() {
     setIsToggle(!isToggle);
   };
   useEffect(() => {
+    //bu hissədə category üçün fetch atılır
     if (info.length === 0) {
       fetch(`http://localhost:3000${pathname}`)
         .then((response) => response.json())
@@ -26,6 +28,15 @@ function Listofthecoins() {
     }
   }, [info, pathname]);
   //#endregion
+  const fetchforSeach = (event) => {
+    //fetch atılır seachdə yazılan sözlərə görə
+    fetch(`http://localhost:3000/seach${pathname}/?q=${inputvalue}`)
+      .then((response) => response.json())
+      .then((data) => setInfo(data))
+      .catch((error) => console.error(error));
+    console.log(inputvalue);
+    console.log(pathname);
+  };
   return (
     <main className="listofthecoins_main">
       <div className="listofthecoins_content">
@@ -39,8 +50,14 @@ function Listofthecoins() {
         <div className="listofthecoins_seach_place">
           <label>Input field</label>
           <br />
-          <input className="listofthecoins_seach_input" />
-          <button className="seach_button">Seach</button>
+          <input
+            value={inputvalue}
+            onChange={(e) => setInputvalue(e.target.value)}
+            className="listofthecoins_seach_input"
+          />
+          <button onClick={fetchforSeach} className="seach_button">
+            Seach
+          </button>
           <br />
           <div className="listofthecoins_adv_img">
             <h5 onClick={changedisplay}>Advanced filter</h5>
