@@ -46,6 +46,9 @@ app.get("/adminpanel1", function (req, res) {
   connection.query(
     `SELECT * FROM coin_informations WHERE (coinname LIKE '%${seachword}%' OR shortDesc LIKE "%${seachword}%" OR longDesc LIKE "%${seachword}%") AND (isRemoved = 0);`,
     (err, data) => {
+      console.log(err);
+      console.log(seachword);
+      console.log(data);
       if (err) {
         return res.status(500).send("There is have a problem");
       }
