@@ -27,9 +27,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get("/seach/:keyword", function (req, res) {
-  const seachword = req.query.q;
-  const { keyword } = req.params;
-  console.log(seachword);
+  //ümumi category lərə görə coinləri verir
+  const seachword = req.query.q; // ?q=keyword q də yazılan keyworda bərabər olur
+  const { keyword } = req.params; // bu hissədədə 3 category dən biri gəlir
   connection.query(
     `SELECT * FROM coin_informations WHERE category = "${keyword} coins" AND (coinname LIKE '%${seachword}%' OR shortDesc LIKE "%${seachword}%" OR longDesc LIKE "%${seachword}%") AND (isRemoved = 0);`,
     (err, data) => {
@@ -41,7 +41,8 @@ app.get("/seach/:keyword", function (req, res) {
   );
 });
 app.get("/adminpanel1", function (req, res) {
-  const seachword = req.query.q;
+  //burda bütün coinləri seach ə görə verir
+  const seachword = req.query.q; // ?q=keyword q də yazılan keyworda bərabər olur
   connection.query(
     `SELECT * FROM coin_informations WHERE (coinname LIKE '%${seachword}%' OR shortDesc LIKE "%${seachword}%" OR longDesc LIKE "%${seachword}%") AND (isRemoved = 0);`,
     (err, data) => {

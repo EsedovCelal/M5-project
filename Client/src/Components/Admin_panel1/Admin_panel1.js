@@ -28,11 +28,16 @@ function Admin_panel1() {
       setCoin(filtered);
     }
   };
-  const fetchforSeach = (event) => {
+  const fetchforSeach = () => {
     //fetch atılır seachdə yazılan sözlərə görə
     fetch(`http://localhost:3000/adminpanel1?q=${inputvalue}`)
       .then((response) => response.json())
-      .then((data) => setCoin(data))
+      .then((data) => {
+        if (data.length === 0) {
+          return setCoin(data);
+        }
+        setCoin(data);
+      })
       .catch((error) => console.error(error));
   };
   return (
