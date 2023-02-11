@@ -3,6 +3,8 @@ const mysql = require("mysql");
 const app = express();
 const cors = require("cors");
 require("dotenv").config(); //database məlumatlarımızın github a getməməsi üçün
+const bcrypt = require("bcrypt"); //user parollarını hash etmək üçünü olan npm
+const jwt = require("jsonwebtoken");
 
 app.use("/images", express.static("icons"));
 const connection = mysql.createConnection({
@@ -130,6 +132,47 @@ app.post("/post", function (req, res) {
     }
   );
 });
+
+app.post("/register", (req, res) => {
+  const { username, password } = req.body; // istifadəçinin qeydiyyat üçün daxil etdiyi user və parol
+  const salt = bcrypt.genSaltSync(15); //random yaradılan parolun içərisinə əlavə random simvollar bunlardır.15 əlavə yaradılan simvol yasıdır dəyişdirilə bilər.
+  const hash = bcrypt.hashSync(password, salt); // və burda parol random yaradılır və içərisinə salt əlavə olunur.database e gedən kod hash-dir
+  const user = {
+    username,
+    password: hash,
+  };
+  connection.query("INSERT INTO users SET ?;", user, (err, data) => {
+    if (err) return res.status(500).json(err);
+    return res.json("Register successed");
+  });
+});
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  let jwtSecretKey = process.env.JWT_SECRET_KEY;
+  let data = {
+    username,
+  };
+  const token = jwt.sign(data, jwtSecretKey, { expiresIn: "1h" });
+  //test
+  connection.query(
+    "SELECT * FROM users WHERE username = ?",
+    [username],
+    (err, data) => {
+      if (data.length === 0) {
+        res.status(404).json({ error: "This user is not exist" });
+      } else {
+        const hashpassword = data[0].password;
+        const result = bcrypt.compareSync(password, hashpassword); // bu hissədə hash olunmamış və olunmuş parollar müqaisə edilir
+        if (result) {
+          res.status(200).json({ success: "correct password", token });
+        } else {
+          res.send({ error: "Password is't correct" });
+        }
+      }
+    }
+  );
+});
+
 app.put("/adminpanel2/editcoin/:id", function (req, res) {
   const { id } = req.params;
   const newData = req.body;

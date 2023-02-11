@@ -25,6 +25,7 @@
   height: 48px;
   margin-bottom: 30px;
   border: 1px solid #000000;
+  padding: 5px;
 }
 .admin_panel_login_main
   .admin_panel_login_content

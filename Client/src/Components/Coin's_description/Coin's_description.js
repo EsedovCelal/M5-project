@@ -3,7 +3,7 @@ import "../Coin's_description/Coin's_description.css";
 import "typeface-roboto";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-function Coin_description() {
+function CoinDescription() {
   const [coin, setCoin] = useState([]);
   const navigate = useNavigate(); // səhifəni geriyə atmaq üçün "go back to the list"
   //bu hissədə linkdən id götürülüb fetchdə istifadə edilirş
@@ -78,4 +78,4 @@ function Coin_description() {
     </main>
   );
 }
-export default Coin_description;
+export default CoinDescription;

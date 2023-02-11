@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../Admin_panel1/Admin_panel1.css";
 import circle from "../../icons/circle.svg";
-import { Link } from "react-router-dom";
-function Admin_panel1() {
+import { Link, useNavigate } from "react-router-dom";
+
+// import jwt from "jsonwebtoken";
+function AdminPanel1() {
   const [coin, setCoin] = useState([]);
   const [inputvalue, setInputvalue] = useState(""); // q = ? seach üçün inputun valuesi bura atılır
+  const navigate = useNavigate();
   useEffect(() => {
     if (coin.length === 0) {
       fetch(`http://localhost:3000/adminpanel1/allcoins`)
@@ -12,7 +15,11 @@ function Admin_panel1() {
         .then((data) => setCoin(data))
         .catch((error) => console.error(error));
     }
-  }, [coin]);
+    if (!localStorage.getItem("access_token")) {
+      // bu hissədə localstrogedə token varmı yoxmu onu yoxlayır
+      navigate("/login");
+    }
+  }, [coin, navigate]);
   const deleteitem = (event) => {
     const answer = window.confirm("Are you sure delete this coin ");
     if (answer) {
@@ -93,4 +100,4 @@ function Admin_panel1() {
     </main>
   );
 }
-export default Admin_panel1;
+export default AdminPanel1;

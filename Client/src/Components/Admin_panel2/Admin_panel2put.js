@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../Admin_panel2/Admin_panel2.css";
 import { useNavigate } from "react-router-dom";
-function Admin_panel2() {
+function AdminPanel2() {
   //#region useStateslər və fetch üçün post method
   const [category, setCategory] = useState("");
   const [coinname, setCoinname] = useState("");
@@ -41,7 +41,6 @@ function Admin_panel2() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         alert("Changed coin's info");
       });
   };
@@ -71,7 +70,10 @@ function Admin_panel2() {
     setLongDesc(coin.longDesc);
     setLinkObserve(coin.linkObserve);
     setLinkReverse(coin.linkReverse);
-  }, [coin, pathname]);
+    if (!localStorage.getItem("access_token")) {
+      navigate("/login");
+    }
+  }, [coin, pathname, navigate]);
 
   //#endregion
   return (
@@ -245,4 +247,4 @@ function Admin_panel2() {
     </main>
   );
 }
-export default Admin_panel2;
+export default AdminPanel2;

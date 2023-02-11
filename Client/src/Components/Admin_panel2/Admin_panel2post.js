@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Admin_panel2/Admin_panel2.css";
 import { useNavigate } from "react-router-dom";
-function Admin_panel2() {
+function AdminPanel2() {
   //#region useStateslər və fetch üçün post method
   const [category, setCategory] = useState("");
   const [coinname, setCoinname] = useState("");
@@ -17,6 +17,12 @@ function Admin_panel2() {
   const [linkObserve, setLinkObserve] = useState("");
   const [linkReverse, setLinkReverse] = useState("");
   const navigate = useNavigate(); // səhifəni geriyə atmaq üçün "go back to the list"
+  useEffect(() => {
+    if (!localStorage.getItem("access_token")) {
+      // bu hissədə localstrogedə token varmı yoxmu onu yoxlayır
+      navigate("/login");
+    }
+  }, [navigate]);
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch("http://localhost:3000/post", {
@@ -232,4 +238,4 @@ function Admin_panel2() {
     </main>
   );
 }
-export default Admin_panel2;
+export default AdminPanel2;
