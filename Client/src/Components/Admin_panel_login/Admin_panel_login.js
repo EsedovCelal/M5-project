@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../Admin_panel_login/Admin_panel_login.css";
 function Adminpanellogin() {
@@ -15,7 +14,6 @@ function Adminpanellogin() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.success === "correct password") {
           navigate("/adminpanel1/allcoins");
           localStorage.setItem("access_token", data.token);
@@ -49,13 +47,14 @@ function Adminpanellogin() {
               />
             </label>
             <br />
-            <label htmlFor="password">
+            <label htmlFor="passwordforlogin">
               Password:
               <br />
               <input
+                autocomplete="on"
                 required
                 value={password}
-                id="password"
+                id="passwordforlogin"
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -63,16 +62,10 @@ function Adminpanellogin() {
             <br />
             <div className="admin_panel_login_back_sign_in">
               <div className="admin_panel_login_back_sign_in_into">
-                <button type="button" onClick={() => navigate(-1)}>
+                <button type="button" onClick={() => navigate("/")}>
                   Back
                 </button>
-                <Link to="register">
-                  <button type="button">Register</button>
-                </Link>
                 <button type="submit">Sign in</button>
-                {/* <Link to="/adminpanel1/allcoins">
-                  <button type="submit">Sign in</button>
-                </Link> */}
               </div>
             </div>
           </div>

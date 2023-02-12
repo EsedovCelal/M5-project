@@ -39,7 +39,6 @@ function Homepage1() {
             <br />
             <div className="hamepage1_adv_img" onClick={changedisplay}>
               <h5>Advanced filter</h5>
-              {/* <Link to="/advancedfilter">Advanced filter</Link> */}
               <img
                 src={!isToggle ? arrow_down : arrow_up}
                 alt="arrow_down_and_up"

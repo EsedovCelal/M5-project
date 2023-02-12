@@ -6,9 +6,18 @@ import arrow_up from "../../icons/arrow_up.svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 function Listofthecoins() {
+  //#region bütün state-lər
   const [info, setInfo] = useState([]);
   const [isToggle, setIsToggle] = useState(false); // Advanced filter üçün display none display block
   const [inputvalue, setInputvalue] = useState(""); // q = ? seach üçün inputun valuesi bura atılır
+  const [country, setCountry] = useState("");
+  const [metal, setMetal] = useState("");
+  const [quality, setQuality] = useState("");
+  const [priceto, setPriceto] = useState("");
+  const [pricefrom, setPricefrom] = useState("");
+  const [yearto, setYearto] = useState("");
+  const [yearfrom, setYearfrom] = useState("");
+  //#endregion
   const navigate = useNavigate(); // səhifəni geriyə atmaq üçün
   //#region bu hissədə 3 catgory dən hansı seçilirsə ona uyğun fetch atılır
   const currentUrl = window.location.href;
@@ -20,20 +29,21 @@ function Listofthecoins() {
   };
   useEffect(() => {
     //bu hissədə category üçün fetch atılır
-    if (info.length === 0) {
-      fetch(`http://localhost:3000${pathname}`)
-        .then((response) => response.json())
-        .then((data) => setInfo(data))
-        .catch((error) => console.error(error));
-    }
-  }, [info, pathname]);
-  //#endregion
-  const fetchforSeach = (event) => {
-    //fetch atılır seachdə yazılan sözlərə görə
-    fetch(`http://localhost:3000/seach${pathname}/?q=${inputvalue}`)
+    fetch(`http://localhost:3000${pathname}`)
       .then((response) => response.json())
       .then((data) => setInfo(data))
       .catch((error) => console.error(error));
+  }, [pathname]);
+  //#endregion
+  const fetchforSeach = (event) => {
+    //fetch atılır seachdə yazılan sözlərə görə
+    fetch(
+      `http://localhost:3000/seach${pathname}/?q=${inputvalue}&country=${country}&metal=${metal}&quality=${quality}&pricefrom=${pricefrom}&priceto=${priceto}&yearfrom=${yearfrom}&yearto=${yearto}`
+    )
+      .then((response) => response.json())
+      .then((data) => setInfo(data))
+      .catch((error) => console.error(error));
+    setIsToggle(false);
   };
   return (
     <main className="listofthecoins_main">
@@ -68,23 +78,35 @@ function Listofthecoins() {
         {isToggle ? (
           <div className="listofthecoins_main_inputs">
             <div className="main_inputs_left">
-              <label htmlFor="">
+              <label htmlFor="country">
                 <br />
                 Issuing country
                 <br />
-                <input />
+                <input
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  id="country"
+                />
               </label>
-              <label htmlFor="">
+              <label htmlFor="metal">
                 <br />
                 Metal
                 <br />
-                <input />
+                <input
+                  value={metal}
+                  id="metal"
+                  onChange={(e) => setMetal(e.target.value)}
+                />
               </label>
-              <label htmlFor="">
+              <label htmlFor="quality">
                 <br />
                 Quality of the coin
                 <br />
-                <input />
+                <input
+                  id="quality"
+                  value={quality}
+                  onChange={(e) => setQuality(e.target.value)}
+                />
               </label>
             </div>
             <div className="main_inputs_right">
@@ -92,22 +114,44 @@ function Listofthecoins() {
                 <label htmlFor="">
                   Price
                   <br />
-                  <label htmlFor="" className="up_label">
+                  <label htmlFor="pricefrom" className="up_label">
                     from
-                    <input type="text" />
+                    <input
+                      required
+                      type="number"
+                      id="pricefrom"
+                      value={pricefrom}
+                      onChange={(e) => setPricefrom(e.target.value)}
+                    />
                     to
-                    <input type="text" />
+                    <input
+                      required
+                      type="number"
+                      value={priceto}
+                      onChange={(e) => setPriceto(e.target.value)}
+                    />
                   </label>
                 </label>
               </div>
               <div className="down">
                 <label htmlFor="">
                   Year of issue <br />
-                  <label htmlFor="" className="down_label">
+                  <label htmlFor="yearfrom" className="down_label">
                     from
-                    <input type="text" />
+                    <input
+                      required
+                      type="number"
+                      id="yearfrom"
+                      value={yearfrom}
+                      onChange={(e) => setYearfrom(e.target.value)}
+                    />
                     to
-                    <input type="text" />
+                    <input
+                      required
+                      type="number"
+                      value={yearto}
+                      onChange={(e) => setYearto(e.target.value)}
+                    />
                   </label>
                 </label>
               </div>
@@ -115,22 +159,30 @@ function Listofthecoins() {
           </div>
         ) : (
           <div className="listofthecoins_coins">
-            {info.map((coin) => (
-              <Link
-                key={coin.id}
-                style={{ textDecoration: "none" }}
-                to={`/description/${coin.id}`}
-              >
-                <div className="coin">
-                  <img src={coin.linkObserve} alt="coin" />
-                  <div className="text">
-                    <h3>{coin.coinname}</h3>
-                    <br />
-                    <h6>{coin.shortDesc}</h6>
-                  </div>
-                </div>
-              </Link>
-            ))}
+            {info.length === 0 ? (
+              <div id="listofthecoin_empty_coin">
+                <h1>There is no coin</h1>
+              </div>
+            ) : (
+              <>
+                {info.map((coin) => (
+                  <Link
+                    key={coin.id}
+                    style={{ textDecoration: "none" }}
+                    to={`/description/${coin.id}`}
+                  >
+                    <div className="coin">
+                      <img src={coin.linkObserve} alt="coin" />
+                      <div className="text">
+                        <h3>{coin.coinname}</h3>
+                        <br />
+                        <h6>{coin.shortDesc}</h6>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </>
+            )}
           </div>
         )}
       </div>

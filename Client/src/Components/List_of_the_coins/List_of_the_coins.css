@@ -68,6 +68,7 @@ span {
   color: white;
   margin-left: 30px;
   border-radius: 5px;
+  cursor: pointer;
 }
 .listofthecoins_seach_place a {
   margin-right: 9px;
@@ -104,7 +105,8 @@ span {
 .listofthecoins_main .listofthecoins_content .listofthecoins_main_inputs {
   display: flex;
   justify-content: space-between;
-  width: 46%;
+  width: 68%;
+  flex-wrap: wrap;
 }
 .listofthecoins_main
   .listofthecoins_content
@@ -114,6 +116,7 @@ span {
   width: 374px;
   height: 48px;
   border: 1px solid #000000;
+  padding: 5px;
 }
 
 .listofthecoins_main
@@ -124,6 +127,7 @@ span {
   input,
 :nth-child(2) input {
   margin-bottom: 20px;
+  padding: 5px;
 }
 .listofthecoins_main
   .listofthecoins_content
@@ -136,6 +140,7 @@ span {
   margin-bottom: 20px;
   margin-left: 10px;
   margin-right: 10px;
+  padding: 5px;
 }
 .listofthecoins_main
   .listofthecoins_content
@@ -158,4 +163,10 @@ span {
 .down_label {
   font-weight: 300;
   font-size: 14px;
+}
+.listofthecoins_content #listofthecoin_empty_coin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }

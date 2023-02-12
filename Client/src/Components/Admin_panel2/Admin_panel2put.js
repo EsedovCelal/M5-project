@@ -71,6 +71,7 @@ function AdminPanel2() {
     setLinkObserve(coin.linkObserve);
     setLinkReverse(coin.linkReverse);
     if (!localStorage.getItem("access_token")) {
+      // bu hissədə localstrogedə token varmı yoxmu onu yoxlayır
       navigate("/login");
     }
   }, [coin, pathname, navigate]);

@@ -33,8 +33,36 @@ app.get("/seach/:keyword", function (req, res) {
   //ümumi category lərə görə coinləri verir
   const seachword = req.query.q; // ?q=keyword q də yazılan keyworda bərabər olur
   const { keyword } = req.params; // bu hissədədə 3 category dən biri gəlir
+  const { country } = req.query;
+  const { metal } = req.query;
+  const { quality } = req.query;
+  const { priceto } = req.query;
+  const { pricefrom } = req.query;
+  const { yearto } = req.query;
+  const { yearfrom } = req.query;
+
+  console.log({
+    categroty: keyword,
+    seachword,
+    country,
+    metal,
+    quality,
+    priceto,
+    pricefrom,
+    yearto,
+    yearfrom,
+  });
+
   connection.query(
-    `SELECT * FROM coin_informations WHERE category = "${keyword} coins" AND (coinname LIKE '%${seachword}%' OR shortDesc LIKE "%${seachword}%" OR longDesc LIKE "%${seachword}%") AND (isRemoved = 0);`,
+    `SELECT * FROM coin_informations WHERE category = "${keyword} coins" AND (coinname LIKE '%${seachword}%' OR shortDesc LIKE "%${seachword}%" OR longDesc LIKE "%${seachword}%") AND (isRemoved = 0) OR (country LIKE "%${country}%" OR metal LIKE "%${metal}%" OR quality LIKE "%${quality}%" ${
+      pricefrom === "" ||
+      priceto === "" ||
+      `OR price BETWEEN ${pricefrom} AND ${priceto}`
+    }${
+      yearfrom === "" ||
+      yearto === "" ||
+      `OR year BETWEEN ${yearfrom} AND ${yearto}`
+    });`,
     (err, data) => {
       if (err) {
         return res.status(500).send("There is have a problem");

@@ -84,3 +84,9 @@ svg {
   width: 284px;
   justify-content: space-between;
 }
+#admin_panel1_empty_coin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

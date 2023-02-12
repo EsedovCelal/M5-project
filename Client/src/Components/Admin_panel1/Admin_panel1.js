@@ -9,17 +9,15 @@ function AdminPanel1() {
   const [inputvalue, setInputvalue] = useState(""); // q = ? seach üçün inputun valuesi bura atılır
   const navigate = useNavigate();
   useEffect(() => {
-    if (coin.length === 0) {
-      fetch(`http://localhost:3000/adminpanel1/allcoins`)
-        .then((response) => response.json())
-        .then((data) => setCoin(data))
-        .catch((error) => console.error(error));
-    }
+    fetch(`http://localhost:3000/adminpanel1/allcoins`)
+      .then((response) => response.json())
+      .then((data) => setCoin(data))
+      .catch((error) => console.error(error));
     if (!localStorage.getItem("access_token")) {
       // bu hissədə localstrogedə token varmı yoxmu onu yoxlayır
       navigate("/login");
     }
-  }, [coin, navigate]);
+  }, [navigate]);
   const deleteitem = (event) => {
     const answer = window.confirm("Are you sure delete this coin ");
     if (answer) {
@@ -67,29 +65,38 @@ function AdminPanel1() {
           <br />
         </div>
       </div>
+
       <div className="commun_coin_info">
-        {coin.map((coin) => (
-          <div key={coin.id} className="coin_info">
-            <div>
-              <img src={coin.linkObserve} alt="" />
-            </div>
-            <div className="text">
-              <h1>{coin.coinname}</h1>
-              <p>{coin.shortDesc}</p>
-            </div>
-            <div>
-              <Link to={`/adminpanel2/editcoin/${coin.id}`}>
-                <button>Edit</button>
-              </Link>
-              {/* editə basib coini edit etmək üçün adminpanel2 bölməsinə yəni add coin componentinə keçid edir*/}
-            </div>
-            <div>
-              <button id={coin.id} onClick={deleteitem}>
-                Delete
-              </button>
-            </div>
+        {coin.length === 0 ? (
+          <div id="admin_panel1_empty_coin">
+            <h1>There is no coin</h1>
           </div>
-        ))}
+        ) : (
+          <>
+            {coin.map((coin) => (
+              <div key={coin.id} className="coin_info">
+                <div>
+                  <img src={coin.linkObserve} alt="" />
+                </div>
+                <div className="text">
+                  <h1>{coin.coinname}</h1>
+                  <p>{coin.shortDesc}</p>
+                </div>
+                <div>
+                  <Link to={`/adminpanel2/editcoin/${coin.id}`}>
+                    <button>Edit</button>
+                  </Link>
+                  {/* editə basib coini edit etmək üçün adminpanel2 bölməsinə yəni add coin componentinə keçid edir*/}
+                </div>
+                <div>
+                  <button id={coin.id} onClick={deleteitem}>
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
+          </>
+        )}
         <div className="add_new_coin">
           <Link to="/adminpanel2">
             <img src={circle} alt="circle" />
