@@ -41,35 +41,22 @@ app.get("/seach/:keyword", function (req, res) {
   const { yearto } = req.query;
   const { yearfrom } = req.query;
 
-  console.log({
-    categroty: keyword,
-    seachword,
-    country,
-    metal,
-    quality,
-    priceto,
-    pricefrom,
-    yearto,
-    yearfrom,
-  });
-  const test = `${
-    pricefrom && priceto && `OR price BETWEEN ${pricefrom} AND ${priceto}`
-  }`;
-  const query = `SELECT * FROM coin_informations WHERE category = "${keyword} coins"  AND (isRemoved = 0) AND (coinname LIKE '%${seachword}%' OR shortDesc LIKE "%${seachword}%" OR longDesc LIKE "%${seachword}%")${
-    country && ` AND country LIKE "%${country}%" `
-  }${metal && ` AND metal LIKE "%${metal}%"`}${
-    quality && ` AND quality LIKE "%${quality}%" `
-  }${pricefrom && priceto && `AND price BETWEEN ${pricefrom} AND ${priceto}`}${
-    yearfrom && yearto && ` AND year BETWEEN ${yearfrom} AND ${yearto}`
-  };`;
-  console.log(query);
-  console.log("test", test);
-  connection.query(query, (err, data) => {
-    if (err) {
-      return res.status(500).send(err);
+  connection.query(
+    //advanced filter
+    `SELECT * FROM coin_informations WHERE category = "${keyword} coins"  AND (isRemoved = 0) AND (coinname LIKE '%${seachword}%' OR shortDesc LIKE "%${seachword}%" OR longDesc LIKE "%${seachword}%")${
+      country && ` AND country LIKE "%${country}%" `
+    }${metal && ` AND metal LIKE "%${metal}%"`}${
+      quality && ` AND quality LIKE "%${quality}%" `
+    }${
+      pricefrom && priceto && `AND price BETWEEN ${pricefrom} AND ${priceto}`
+    }${yearfrom && yearto && ` AND year BETWEEN ${yearfrom} AND ${yearto}`};`,
+    (err, data) => {
+      if (err) {
+        return res.status(500).send("There is have a problem");
+      }
+      res.json(data);
     }
-    res.json(data);
-  });
+  );
 });
 app.get("/adminpanel1", function (req, res) {
   //burda bütün coinləri seach ə görə verir

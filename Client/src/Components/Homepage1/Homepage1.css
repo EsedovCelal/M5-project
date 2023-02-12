@@ -30,6 +30,7 @@ header:first-child:-webkit-any-link {
 }
 .homepage1_seach_place {
   min-width: 524px;
+  margin-bottom: 30px;
 }
 .homepage1_seach_place label {
   font-weight: 500;
