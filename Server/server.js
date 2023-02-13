@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get("/seach/:keyword", function (req, res) {
-  //ümumi category lərə görə coinləri verir
+  //ümumi category içində coinləri verir
   const seachword = req.query.q; // ?q=keyword q də yazılan keyworda bərabər olur
   const { keyword } = req.params; // bu hissədədə 3 category dən biri gəlir
   const { country } = req.query;
@@ -103,13 +103,25 @@ app.get("/:keyword", function (req, res) {
     `SELECT * FROM coin_informations WHERE category = "${keyword} coins" AND isremoved = 0;`,
     (err, data) => {
       if (err) {
-        return res.status(500).send("There is hava a proble");
+        return res.status(500).send("There is hava a problem");
       }
       res.json(data);
     }
   );
 });
-
+app.get("/home/seach", function (req, res) {
+  const { q } = req.query;
+  console.log(q);
+  connection.query(
+    `SELECT * FROM coin_informations_category_name WHERE (isRemoved = 0) AND category_name LIKE '%${q}%';`,
+    (err, data) => {
+      if (err) {
+        return res.status(500).send("There is have a problem ");
+      }
+      res.json(data);
+    }
+  );
+});
 app.get("/description/:id", function (req, res) {
   // id yə görə hər bir coin məlumatı alınması üçün atılan fetch
   const { id } = req.params;

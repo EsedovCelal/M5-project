@@ -4,14 +4,21 @@ import arrow_right from "../../icons/arrow_right.svg";
 import { Link } from "react-router-dom";
 function Homepage1() {
   const [info, setInfo] = useState([]);
+  const [input, setInputvalue] = useState("");
   useEffect(() => {
-    if (info.length === 0) {
-      fetch("http://localhost:3000/")
-        .then((response) => response.json())
-        .then((data) => setInfo(data))
-        .catch((error) => console.error(error));
-    }
-  });
+    fetch("http://localhost:3000/")
+      .then((response) => response.json())
+      .then((data) => setInfo(data))
+      .catch((error) => console.error(error));
+  }, []);
+  const fetachforseach = () => {
+    // for seach
+    fetch(`http://localhost:3000/home/seach/?q=${input}`)
+      .then((response) => response.json())
+      .then((data) => setInfo(data))
+      .catch((error) => console.error(error));
+    console.log(input);
+  };
   return (
     <div>
       <main className="homepage1_main">
@@ -25,10 +32,15 @@ function Homepage1() {
             </Link>
           </header>
           <div className="homepage1_seach_place">
-            <label>Input field</label>
+            <label htmlFor="inputvalueforseach">Input field</label>
             <br />
-            <input />
-            <button className="seach_button">Seach</button>
+            <input
+              onChange={(e) => setInputvalue(e.target.value)}
+              id="inputvalueforseach"
+            />
+            <button onClick={fetachforseach} className="seach_button">
+              Seach
+            </button>
             <br />
           </div>
           <div className="homepage1_coins">
