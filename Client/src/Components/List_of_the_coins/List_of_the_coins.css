@@ -105,7 +105,7 @@ span {
 .listofthecoins_main .listofthecoins_content .listofthecoins_main_inputs {
   display: flex;
   justify-content: space-between;
-  width: 68%;
+  width: 46%;
   flex-wrap: wrap;
 }
 .listofthecoins_main
