@@ -18,15 +18,11 @@ function Listofthecoins() {
   const [yearto, setYearto] = useState("");
   const [yearfrom, setYearfrom] = useState("");
   //#endregion
-  const navigate = useNavigate(); // səhifəni geriyə atmaq üçün
-  //#region bu hissədə 3 catgory dən hansı seçilirsə ona uyğun fetch atılır
+  //#region bu hissədə 3 catgory dən hansı seçilirsə ona uyğun fetch atılır və bu category ə uyğun bütün coinlər əldə edilir.
   const currentUrl = window.location.href;
   const url = new URL(currentUrl);
   const pathname = url.pathname;
-  const changedisplay = () => {
-    //bu hissədə advanced üstünə basanda block display və arraw down up üçün true false edir
-    setIsToggle(!isToggle);
-  };
+  const navigate = useNavigate(); // səhifəni geriyə atmaq üçün
   useEffect(() => {
     //bu hissədə category üçün fetch atılır
     fetch(`http://localhost:3000${pathname}`)
@@ -44,6 +40,10 @@ function Listofthecoins() {
       .then((data) => setInfo(data))
       .catch((error) => console.error(error));
     setIsToggle(false);
+  };
+  const changedisplay = () => {
+    //bu hissədə advanced üstünə basanda block display və arraw down up üçün true false edir
+    setIsToggle(!isToggle);
   };
   return (
     <main className="listofthecoins_main">
