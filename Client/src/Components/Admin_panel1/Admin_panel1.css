@@ -123,7 +123,7 @@ svg {
 
 .admin_panel1_pagination .pagination__link--disabled a {
   color: rgb(198, 197, 202);
-  border: 1px solid #833ae0;
+  border: 1px solid rgb(198, 197, 202);
 }
 .admin_panel1_pagination .admin_panel1_pagination_coins {
   margin-bottom: 32px;
