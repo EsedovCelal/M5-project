@@ -43,7 +43,7 @@ header h1 {
   font-weight: 300;
 }
 .admin_panel1_seach_place {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 .admin_panel1_main .coin_info img,
 svg {
@@ -53,6 +53,7 @@ svg {
 .admin_panel1_main .coin_info {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 745px;
   margin-bottom: 25px;
 }
