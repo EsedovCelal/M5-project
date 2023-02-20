@@ -90,3 +90,43 @@ svg {
   align-items: center;
   width: 100%;
 }
+
+.admin_panel1_pagination {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.admin_panel1_pagination .pagination {
+  width: 784px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  cursor: pointer;
+}
+
+.admin_panel1_pagination .pagination a {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #833ae0;
+  color: #833ae0;
+}
+
+.admin_panel1_pagination .pagination__link {
+  font-weight: bold;
+}
+
+.admin_panel1_pagination .pagination__link--active a {
+  color: #fff;
+  background: #833ae0;
+}
+
+.admin_panel1_pagination .pagination__link--disabled a {
+  color: rgb(198, 197, 202);
+  border: 1px solid #833ae0;
+}
+.admin_panel1_pagination .admin_panel1_pagination_coins {
+  margin-bottom: 32px;
+}
+.admin_panel1_pagination .admin_panel1_pagination_reactpaginate {
+  margin-bottom: 36px;
+}

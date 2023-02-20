@@ -175,15 +175,6 @@ span {
   font-family: sans-serif;
   text-align: center;
 }
-
-/* img {
-  height: 100px;
-} */
-
-.listofthecoins_pagination h1 {
-  color: #6c7ac9;
-}
-
 .listofthecoins_pagination .pagination {
   width: 500px;
   display: flex;
