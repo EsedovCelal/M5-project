@@ -5,6 +5,7 @@ import arrow_down from "../../icons/arrow_down.svg";
 import arrow_up from "../../icons/arrow_up.svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 function Listofthecoins() {
   //#region bütün state-lər
   const [info, setInfo] = useState([]);
@@ -17,6 +18,31 @@ function Listofthecoins() {
   const [pricefrom, setPricefrom] = useState("");
   const [yearto, setYearto] = useState("");
   const [yearfrom, setYearfrom] = useState("");
+  //#region pagination üçün ehtiyac olan kodlar
+  const [currentPage, setCurrentPage] = useState(0);
+  const PER_PAGE = 3;
+  const offset = currentPage * PER_PAGE;
+  const currentPageData = info.slice(offset, offset + PER_PAGE).map((coin) => (
+    <Link
+      key={coin.id}
+      style={{ textDecoration: "none" }}
+      to={`/description/${coin.id}`}
+    >
+      <div className="coin">
+        <img src={coin.linkObserve} alt="coin" />
+        <div className="text">
+          <h3>{coin.coinname}</h3>
+          <br />
+          <h6>{coin.shortDesc}</h6>
+        </div>
+      </div>
+    </Link>
+  ));
+  const pageCount = Math.ceil(info.length / PER_PAGE);
+  function handlePageClick({ selected: selectedPage }) {
+    setCurrentPage(selectedPage);
+  }
+  //#endregion
   //#endregion
   //#region bu hissədə 3 catgory dən hansı seçilirsə ona uyğun fetch atılır və bu category ə uyğun bütün coinlər əldə edilir.
   const currentUrl = window.location.href;
@@ -27,7 +53,10 @@ function Listofthecoins() {
     //bu hissədə category üçün fetch atılır
     fetch(`http://localhost:3000${pathname}`)
       .then((response) => response.json())
-      .then((data) => setInfo(data))
+      .then((data) => {
+        // const {course: { uploads },} = data;
+        setInfo(data);
+      })
       .catch((error) => console.error(error));
   }, [pathname]);
   //#endregion
@@ -164,24 +193,22 @@ function Listofthecoins() {
                 <h1>There is no coin</h1>
               </div>
             ) : (
-              <>
-                {info.map((coin) => (
-                  <Link
-                    key={coin.id}
-                    style={{ textDecoration: "none" }}
-                    to={`/description/${coin.id}`}
-                  >
-                    <div className="coin">
-                      <img src={coin.linkObserve} alt="coin" />
-                      <div className="text">
-                        <h3>{coin.coinname}</h3>
-                        <br />
-                        <h6>{coin.shortDesc}</h6>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </>
+              <div className="listofthecoins_pagination">
+                <div className="listofthecoins_pagination_coins">
+                  {currentPageData}
+                </div>
+                <ReactPaginate
+                  previousLabel={"← Previous"}
+                  nextLabel={"Next →"}
+                  pageCount={pageCount}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  previousLinkClassName={"pagination__link"}
+                  nextLinkClassName={"pagination__link"}
+                  disabledClassName={"pagination__link--disabled"}
+                  activeClassName={"pagination__link--active"}
+                />
+              </div>
             )}
           </div>
         )}
