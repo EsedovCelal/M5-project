@@ -148,13 +148,7 @@ span {
   .main_inputs_right {
   height: 156px;
 }
-.listofthecoins_main
-  .listofthecoins_content
-  .listofthecoins_main_inputs
-  .main_inputs_right
-  .up {
-  margin-top: 17px;
-}
+
 .listofthecoins_main
   .listofthecoins_content
   .listofthecoins_main_inputs
@@ -205,4 +199,21 @@ span {
 }
 .listofthecoins_pagination .listofthecoins_pagination_coins {
   margin-bottom: 18px;
+}
+@media (min-width: 769px) {
+  .listofthecoins_main
+    .listofthecoins_content
+    .listofthecoins_main_inputs
+    .main_inputs_right
+    .up {
+    margin-top: 17px;
+  }
+}
+@media (max-width: 768px) {
+  .listofthecoins_main
+    .listofthecoins_content
+    .listofthecoins_main_inputs
+    .main_inputs_right {
+    display: flex;
+  }
 }

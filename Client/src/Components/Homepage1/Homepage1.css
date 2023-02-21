@@ -4,6 +4,7 @@
   margin: 0px;
   padding: 0px;
 }
+
 .homepage1_main {
   width: 100%;
   max-height: 720px;
@@ -62,9 +63,7 @@ header:first-child:-webkit-any-link {
   display: flex;
   margin-bottom: 60px;
 }
-.homepage1_coins {
-  display: flex;
-}
+
 .homepage1_coin {
   width: 30%;
 }
@@ -77,6 +76,7 @@ header:first-child:-webkit-any-link {
   font-size: 28px;
   line-height: 28px;
   margin-bottom: 20px;
+  width: 300px;
 }
 .texts :nth-child(2) {
   font-weight: 3900;
@@ -127,6 +127,13 @@ header:first-child:-webkit-any-link {
   font-weight: 300;
   font-size: 14px;
 }
-
-@media (max-width: 768px) {
+@media (min-width: 837px) {
+  .homepage1_coins {
+    display: flex;
+  }
+}
+@media (max-width: 836px) {
+  .homepage1_coins .homepage1_coin {
+    margin-bottom: 20px;
+  }
 }

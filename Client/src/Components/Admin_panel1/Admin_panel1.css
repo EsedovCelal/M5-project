@@ -50,13 +50,7 @@ svg {
   width: 120px;
   height: 120px;
 }
-.admin_panel1_main .coin_info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 745px;
-  margin-bottom: 25px;
-}
+
 .admin_panel1_main .coin_info button {
   width: 120px;
   height: 48px;
@@ -97,14 +91,6 @@ svg {
   text-align: center;
 }
 
-.admin_panel1_pagination .pagination {
-  width: 746px;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-  cursor: pointer;
-}
-
 .admin_panel1_pagination .pagination a {
   padding: 10px;
   border-radius: 5px;
@@ -130,4 +116,36 @@ svg {
 }
 .admin_panel1_pagination .admin_panel1_pagination_reactpaginate {
   margin-bottom: 36px;
+}
+@media (min-width: 769px) {
+  .admin_panel1_main .coin_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 745px;
+    margin-bottom: 25px;
+  }
+  .admin_panel1_pagination .pagination {
+    width: 746px;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+  }
+}
+@media (max-width: 768px) {
+  .admin_panel1_main .coin_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 680px;
+    margin-bottom: 25px;
+  }
+  .admin_panel1_pagination .pagination {
+    width: 680px;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+  }
 }

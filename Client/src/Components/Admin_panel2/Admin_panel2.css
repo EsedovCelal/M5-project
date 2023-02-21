@@ -6,13 +6,7 @@
   font-weight: 500;
   font-size: 14px;
 }
-.admin_panel2_main .admin_panel2_contain {
-  width: 1280px;
-  max-height: 720px;
-  margin-left: 52px;
-  margin-top: 52px;
-  margin-right: 120px;
-}
+
 .admin_panel2_main .admin_panel2_contain #admin_panel2_header h1 {
   font-weight: 300;
   font-size: 50px;
@@ -28,11 +22,7 @@
   height: 134px;
   margin-bottom: 20px;
 }
-.admin_panel2_main .admin_panel2_contain .admin_panel2_inputs {
-  display: flex;
-  width: 1182px;
-  justify-content: space-between;
-}
+
 .admin_panel2_main .admin_panel2_contain .admin_panel2_inputs .right button {
   width: 120px;
   height: 48px;
@@ -50,10 +40,44 @@
   color: white;
   margin-right: 30px;
 }
-.admin_panel2_main .admin_panel2_contain .admin_panel2_inputs .right {
-  display: grid;
-  grid-gap: 164px;
+
+@media (min-width: 769px) {
+  .admin_panel2_main .admin_panel2_contain .admin_panel2_inputs {
+    display: flex;
+    width: 1182px;
+    justify-content: space-between;
+  }
+  .admin_panel2_main
+    .admin_panel2_contain
+    .admin_panel2_inputs
+    .right
+    .buttons {
+    text-align: center;
+  }
+  .admin_panel2_main .admin_panel2_contain .admin_panel2_inputs .right {
+    display: grid;
+    grid-gap: 164px;
+  }
+  .admin_panel2_main .admin_panel2_contain {
+    width: 1280px;
+    max-height: 720px;
+    margin-left: 52px;
+    margin-top: 52px;
+    margin-right: 120px;
+  }
 }
-.admin_panel2_main .admin_panel2_contain .admin_panel2_inputs .right .buttons {
-  text-align: center;
+@media (max-width: 768px) {
+  .admin_panel2_main
+    .admin_panel2_contain
+    .admin_panel2_inputs
+    .right
+    .buttons {
+    padding-bottom: 50px;
+  }
+  .admin_panel2_main .admin_panel2_contain {
+    max-height: 720px;
+    margin-left: 52px;
+    margin-top: 52px;
+    margin-right: 120px;
+  }
 }
